@@ -151,11 +151,9 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
                 .y(d => yScale(d.y))
                 .curve(d3.curveLinear));
 
-        /// グリッドを描画
         const gridContainer = svg.append('g')
             .attr('clip-path', 'url(#grid-area-clip)');
 
-        // プロット領域を作成
         const plotArea = svg.append('g')
             .attr('clip-path', 'url(#plot-area-clip)');
 
@@ -194,7 +192,7 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
 
         // Add vertical grid lines
         const xGrid = d3.axisBottom(xScale)
-            .tickSize(-(height - margin.top - margin.bottom)) // マイナスを付けて上向きに
+            .tickSize(-(height - margin.top - margin.bottom)) // minus sign to set upward
             .tickFormat(() => '')
             .ticks(12);
 
@@ -210,7 +208,7 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
 
         // Add horizontal grid lines
         const yGrid = d3.axisRight(yScale)
-            .tickSize(-(width - margin.left - margin.right)) // マイナスを付けて左向きに
+            .tickSize(-(width - margin.left - margin.right)) // minus sign to set leftward
             .tickFormat(() => '')
             .ticks(10);
 

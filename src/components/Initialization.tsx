@@ -94,7 +94,6 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                     <CardTitle className="text-lg">
                         Initialization
                     </CardTitle>
-                    {/* <CardDescription>Set initial state</CardDescription> */}
                 </CardHeader>
                 <CardContent className="pb-0 pt-0 -mb-2">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">

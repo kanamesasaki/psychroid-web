@@ -1,7 +1,10 @@
-# preview 
-https://*.pages.dev/*
+# preview environments
+https://psychroid-web.pages.dev/*
   X-Robots-Tag: noindex
 
-# production
+https://*.psychroid-web.pages.dev/*
+  X-Robots-Tag: noindex
+
+# production environment
 https://psychroid.thermocraft.space/*
   X-Robots-Tag: index,follow
