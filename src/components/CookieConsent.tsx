@@ -54,9 +54,9 @@ const CookieConsent = () => {
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
                     <p className="text-sm">
-                        We use analytics cookies to improve our service and understand how the site is used.
+                        We use analytics cookies to improve our service.
                         This data is completely anonymous and helps us enhance your experience.
-                        By clicking "Accept", you consent to our use of cookies for analytics purposes.
+                        By clicking "Accept", you consent to our use of cookies.
                     </p>
                 </div>
                 <div className="flex gap-2 flex-shrink-0">
