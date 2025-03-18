@@ -1,0 +1,1943 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="w-full h-auto"
+   viewBox="0 0 1200 630"
+   preserveAspectRatio="xMidYMid"
+   version="1.1"
+   id="svg168"
+   sodipodi:docname="og-image.svg"
+   width="1200"
+   height="630"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   inkscape:export-filename="og-image.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview168"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="380.42345"
+     inkscape:cy="-227.68838"
+     inkscape:window-width="1730"
+     inkscape:window-height="1211"
+     inkscape:window-x="1499"
+     inkscape:window-y="64"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg168"
+     showgrid="true">
+    <inkscape:grid
+       id="grid93"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect168"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <clipPath
+       id="plot-area-clip">
+      <rect
+         x="10"
+         y="5"
+         width="335"
+         height="255"
+         id="rect1" />
+    </clipPath>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect168-9"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect168-8"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect168-8-5"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
+  <defs
+     id="defs2">
+    <clipPath
+       id="grid-area-clip">
+      <path
+         d="M 345,5 V 260 H 10 v -8.638 l 30.455,-4.957 30.454,-7.45 30.455,-11.035 30.454,-13.837 30.455,-18.938 30.454,-25.648 30.455,-34.405 L 253.636,89.31 284.091,28.778 293.18,5"
+         id="path1" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#grid-area-clip)"
+     id="g104"
+     style="display:none">
+    <g
+       class="grid vertical-grid"
+       transform="translate(0,260)"
+       fill="none"
+       font-size="10px"
+       font-family="sans-serif"
+       text-anchor="middle"
+       id="g14">
+      <path
+         class="domain"
+         stroke="currentColor"
+         d="M 10.5,-255 V 0.5 h 335 V -255"
+         id="path2" />
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(10.5)"
+         id="g2">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line2"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text2" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(40.954545)"
+         id="g3">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line3"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text3" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(71.409091)"
+         id="g4">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line4"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text4" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(101.86364)"
+         id="g5">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line5"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text5" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(132.31818)"
+         id="g6">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line6"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text6" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(162.77273)"
+         id="g7">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line7"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text7" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(193.22727)"
+         id="g8">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line8"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text8" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(223.68182)"
+         id="g9">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line9"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text9" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(254.13636)"
+         id="g10">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line10"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text10" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(284.59091)"
+         id="g11">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line11"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text11" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(315.04545)"
+         id="g12">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line12"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text12" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(345.5)"
+         id="g13">
+        <line
+           stroke="#aaaaaa"
+           y2="-255"
+           stroke-width="0.5"
+           id="line13"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text13" />
+      </g>
+    </g>
+    <g
+       class="grid horizontal-grid"
+       transform="translate(345)"
+       fill="none"
+       font-size="10px"
+       font-family="sans-serif"
+       text-anchor="start"
+       id="g31">
+      <path
+         class="domain"
+         stroke="currentColor"
+         d="M -335,260.5 H 0.5 V 5.5 H -335"
+         id="path14" />
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,260.5)"
+         id="g15">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line14"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text14" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,243.5)"
+         id="g16">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line15"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text15" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,226.5)"
+         id="g17">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line16"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text16" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,209.5)"
+         id="g18">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line17"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text17" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,192.5)"
+         id="g19">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line18"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text18" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,175.5)"
+         id="g20">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line19"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text19" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,158.5)"
+         id="g21">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line20"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text20" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,141.5)"
+         id="g22">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line21"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text21" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,124.5)"
+         id="g23">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line22"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text22" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,107.5)"
+         id="g24">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line23"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text23" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,90.5)"
+         id="g25">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line24"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text24" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,73.5)"
+         id="g26">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line25"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text25" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,56.5)"
+         id="g27">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line26"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text26" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,39.5)"
+         id="g28">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line27"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text27" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,22.5)"
+         id="g29">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line28"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text28" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,5.5)"
+         id="g30">
+        <line
+           stroke="#aaaaaa"
+           x2="-335"
+           stroke-width="0.5"
+           id="line29"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text29" />
+      </g>
+    </g>
+    <g
+       class="grid minor-vertical-grid"
+       transform="translate(0,260)"
+       fill="none"
+       font-size="10px"
+       font-family="sans-serif"
+       text-anchor="middle"
+       id="g76">
+      <path
+         class="domain"
+         stroke="currentColor"
+         d="M 10.5,-255 V 0.5 h 335 V -255"
+         id="path31" />
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(16.590909)"
+         id="g32">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line31"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text31" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(22.681818)"
+         id="g33">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line32"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text32" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(28.772727)"
+         id="g34">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line33"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text33" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(34.863636)"
+         id="g35">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line34"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text34" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(47.045455)"
+         id="g36">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line35"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text35" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(53.136364)"
+         id="g37">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line36"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text36" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(59.227273)"
+         id="g38">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line37"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text37" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(65.318182)"
+         id="g39">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line38"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text38" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(77.5)"
+         id="g40">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line39"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text39" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(83.590909)"
+         id="g41">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line40"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text40" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(89.681818)"
+         id="g42">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line41"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text41" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(95.772727)"
+         id="g43">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line42"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text42" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(107.95455)"
+         id="g44">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line43"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text43" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(114.04545)"
+         id="g45">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line44"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text44" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(120.13636)"
+         id="g46">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line45"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text45" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(126.22727)"
+         id="g47">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line46"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text46" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(138.40909)"
+         id="g48">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line47"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text47" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(144.5)"
+         id="g49">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line48"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text48" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(150.59091)"
+         id="g50">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line49"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text49" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(156.68182)"
+         id="g51">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line50"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text50" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(168.86364)"
+         id="g52">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line51"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text51" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(174.95455)"
+         id="g53">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line52"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text52" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(181.04545)"
+         id="g54">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line53"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text53" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(187.13636)"
+         id="g55">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line54"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text54" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(199.31818)"
+         id="g56">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line55"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text55" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(205.40909)"
+         id="g57">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line56"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text56" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(211.5)"
+         id="g58">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line57"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text57" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(217.59091)"
+         id="g59">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line58"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text58" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(229.77273)"
+         id="g60">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line59"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text59" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(235.86364)"
+         id="g61">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line60"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text60" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(241.95455)"
+         id="g62">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line61"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text61" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(248.04545)"
+         id="g63">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line62"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text62" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(260.22727)"
+         id="g64">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line63"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text63" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(266.31818)"
+         id="g65">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line64"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text64" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(272.40909)"
+         id="g66">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line65"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text65" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(278.5)"
+         id="g67">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line66"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text66" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(290.68182)"
+         id="g68">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line67"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text67" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(296.77273)"
+         id="g69">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line68"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text68" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(302.86364)"
+         id="g70">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line69"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text69" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(308.95455)"
+         id="g71">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line70"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text70" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(321.13636)"
+         id="g72">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line71"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text71" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(327.22727)"
+         id="g73">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line72"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text72" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(333.31818)"
+         id="g74">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line73"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text73" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(339.40909)"
+         id="g75">
+        <line
+           stroke="#cccccc"
+           y2="-255"
+           stroke-width="0.3"
+           id="line74"
+           x1="0"
+           y1="0"
+           x2="0" />
+        <text
+           fill="currentColor"
+           y="3"
+           dy="0.70999998em"
+           id="text74" />
+      </g>
+    </g>
+    <g
+       class="grid minor-horizontal-grid"
+       transform="translate(345)"
+       fill="none"
+       font-size="10px"
+       font-family="sans-serif"
+       text-anchor="start"
+       id="g92">
+      <path
+         class="domain"
+         stroke="currentColor"
+         d="M -335,260.5 H 0.5 V 5.5 H -335"
+         id="path76" />
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,252)"
+         id="g77">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line76"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text76" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,235)"
+         id="g78">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line77"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text77" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,218)"
+         id="g79">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line78"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text78" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,201)"
+         id="g80">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line79"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text79" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,184)"
+         id="g81">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line80"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text80" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,167)"
+         id="g82">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line81"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text81" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,150)"
+         id="g83">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line82"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text82" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,133)"
+         id="g84">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line83"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text83" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,116)"
+         id="g85">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line84"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text84" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,99)"
+         id="g86">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line85"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text85" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,82)"
+         id="g87">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line86"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text86" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,65)"
+         id="g88">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line87"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text87" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,48)"
+         id="g89">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line88"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text88" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,31)"
+         id="g90">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line89"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text89" />
+      </g>
+      <g
+         class="tick"
+         opacity="1"
+         transform="translate(0,14)"
+         id="g91">
+        <line
+           stroke="#cccccc"
+           x2="-335"
+           stroke-width="0.3"
+           id="line90"
+           x1="0"
+           y1="0"
+           y2="0" />
+        <text
+           fill="currentColor"
+           x="3"
+           dy="0.31999999em"
+           id="text90" />
+      </g>
+    </g>
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,242.506 30.455,17.289 30.454,17.159 30.455,17.032 30.454,16.906 30.455,16.781 30.454,16.658 30.455,16.536 30.454,16.415 30.455,16.295 30.454,16.177 30.455,16.061"
+       id="path92" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,208.136 30.455,17.417 30.454,17.288 30.455,17.159 30.454,17.032 30.455,16.906 30.454,16.782 30.455,16.658 30.454,16.538 30.455,16.416 30.454,16.298 30.455,16.18"
+       id="path93" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,173.766 30.455,17.546 30.454,17.416 30.455,17.286 30.454,17.157 30.455,17.031 30.454,16.906 30.455,16.782 30.454,16.66 30.455,16.538 30.454,16.418 30.455,16.3"
+       id="path94" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,139.396 30.455,17.675 30.454,17.544 30.455,17.412 30.454,17.284 30.455,17.156 30.454,17.03 30.455,16.905 30.454,16.782 30.455,16.659 30.454,16.539 30.455,16.419"
+       id="path95" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,105.026 30.455,17.804 30.454,17.671 30.455,17.54 30.454,17.409 30.455,17.281 30.454,17.154 30.455,17.029 30.454,16.903 30.455,16.781 30.454,16.66 30.455,16.539"
+       id="path96" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,70.657 30.455,17.932 30.454,17.799 30.455,17.666 30.454,17.536 30.455,17.406 30.454,17.278 30.455,17.151 30.454,17.026 30.455,16.903 30.454,16.78 30.455,16.658"
+       id="path97" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,36.287 30.455,18.061 30.454,17.927 30.455,17.793 30.454,17.661 30.455,17.531 30.454,17.402 30.455,17.275 30.454,17.148 30.455,17.024 30.454,16.9 30.455,16.779"
+       id="path98" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,1.917 30.455,18.19 30.454,18.054 30.455,17.921 30.454,17.787 30.455,17.656 30.454,17.526 30.455,17.398 30.454,17.27 30.455,17.145 30.454,17.021 30.455,16.898"
+       id="path99" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,-32.453 30.455,18.319 30.454,18.182 30.455,18.047 30.454,17.913 30.455,17.781 30.454,17.651 30.455,17.52 30.454,17.393 30.455,17.267 30.454,17.141 30.455,17.017"
+       id="path100" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,-66.823 30.455,18.448 30.454,18.31 30.455,18.174 30.454,18.039 30.455,17.906 30.454,17.774 30.455,17.644 30.454,17.515 30.455,17.388 30.454,17.262 30.455,17.137"
+       id="path101" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,-101.192 30.455,18.576 30.454,18.438 30.455,18.3 30.454,18.165 30.455,18.031 30.454,17.899 30.455,17.767 30.454,17.637 30.455,17.509 30.454,17.383 L 345,95.769"
+       id="path102" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,-135.562 30.455,18.705 30.454,18.565 30.455,18.428 30.454,18.291 30.455,18.156 30.454,18.022 30.455,17.89 30.454,17.76 30.455,17.631 30.454,17.502 L 345,62.765"
+       id="path103" />
+    <path
+       fill="none"
+       stroke="#666666"
+       stroke-width="0.5"
+       d="m 10,-169.932 30.455,18.834 30.454,18.693 30.455,18.555 30.454,18.416 30.455,18.281 30.454,18.147 30.455,18.013 30.454,17.882 30.455,17.752 30.454,17.623 L 345,29.76"
+       id="path104" />
+  </g>
+  <g
+     id="g93"
+     transform="matrix(1.4451981,0,0,1.4451981,-291.47018,-133.92998)">
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.102354;stroke-dasharray:none;stroke-opacity:1"
+       d="m 488.39444,377.7356 -0.002,-2.43477 3.43638,-1.31098 c 7.24208,-2.76285 18.55121,-7.52027 25.05637,-10.49513 21.21347,-9.70104 41.86421,-22.94073 60.19246,-38.59084 16.61114,-14.1839 32.94674,-31.85359 47.38381,-51.25356 16.94565,-22.77088 33.28305,-50.34247 47.75834,-80.59871 6.20377,-12.96747 13.58688,-29.67269 18.18786,-41.15272 l 1.39787,-3.48784 11.71145,-0.004 c 6.4413,-0.002 11.71146,0.0647 11.71146,0.14804 0,0.39771 -5.30268,12.78673 -8.97686,20.97326 -13.10298,29.19513 -26.86002,54.81704 -41.81039,77.87014 -19.57473,30.18373 -41.38373,55.47461 -65.17894,75.58496 -25.21145,21.30727 -53.49826,37.48593 -85.38247,48.83452 -5.61738,1.99941 -20.21227,6.78585 -25.17773,8.26742 -0.28421,0.0848 -0.30563,-0.10625 -0.30763,-2.35029 z"
+       id="path181"
+       sodipodi:nodetypes="scscsssscssssssss" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.102354;stroke-dasharray:none;stroke-opacity:1"
+       d="m 488.39271,388.9395 c -0.0277,-2.12961 -0.0475,-2.3765 0.22733,-2.45938 0.17014,-0.0513 2.64821,-0.64499 5.36835,-1.28586 17.2117,-4.05517 28.1094,-7.02746 39.33685,-10.72892 27.12596,-8.94286 49.28715,-19.51816 71.59456,-34.16483 24.39563,-16.01777 46.93867,-36.58584 67.72186,-61.78883 16.89045,-20.4824 33.93791,-46.1682 47.05868,-70.90439 4.81552,-9.07855 16.31368,-31.95282 21.98181,-43.73031 l 0.59314,-1.23245 v 40.67744 40.67743 l -3.64908,4.83757 c -3.89027,5.15732 -4.8015,6.34944 -9.50802,12.43898 -12.62507,16.33496 -19.89243,24.67534 -31.5064,36.15831 -15.33164,15.15871 -29.91982,27.06948 -47.0836,38.44222 -32.93637,21.82368 -70.17754,37.02439 -115.3468,47.081 -9.92745,2.21028 -17.80612,3.71993 -30.05203,5.75833 -5.47304,0.91102 -14.40716,2.32999 -15.77732,2.50583 l -0.92808,0.11913 z"
+       id="path182"
+       sodipodi:nodetypes="sscssssscccssssssscs" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.102354;stroke-dasharray:none;stroke-opacity:1"
+       d="m 488.42396,400.05838 v -2.37377 l 0.92808,-0.10119 c 0.51044,-0.0557 4.5078,-0.38242 8.88303,-0.72613 10.76703,-0.84585 20.85781,-1.73234 28.19588,-2.47704 55.35433,-5.61766 99.71089,-14.95354 138.16213,-29.07948 19.93441,-7.32336 39.14173,-16.29236 54.43608,-25.41935 5.12599,-3.05896 17.67618,-10.915 22.79517,-14.2691 l 0.45096,-0.29548 v 38.55765 38.55765 H 615.34963 488.42396 Z"
+       id="path183" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:24px;font-family:'Century Schoolbook';-inkscape-font-specification:'Century Schoolbook';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0.579"
+     x="146.7498"
+     y="555.52948"
+     id="text1"><tspan
+       sodipodi:role="line"
+       x="146.7498"
+       y="555.52948"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.3333px;font-family:Sans;-inkscape-font-specification:'Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       id="tspan2">Psychrometric Chart Calculator</tspan></text>
+</svg>
