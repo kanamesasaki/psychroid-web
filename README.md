@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Psychrometric Chart Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive psychrometric chart calculator for HVAC engineers. Calculate and visualize air properties, process flows, and energy requirements.
 
-Currently, two official plugins are available:
+<img alt="Psychrometric Chart Screenshot" src="https://psychroid.thermocraft.space/og-image.png">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Interactive psychrometric chart visualization
+- Calculate moist air properties (dry-bulb temperature, humidity ratio, wet-bulb, etc.)
+- Calculate and visualize air processes (heating, cooling, humidification, etc.)
+- Mobile-friendly responsive design
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technology Stack
+- React 19.0.0
+- TypeScript
+- Vite
+- Tailwind CSS
+- WebAssembly (WASM)
+- D3.js
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Deployment
+This project is configured for deployment on Cloudflare Pages:
+1. Connect your GitHub repository to Cloudflare Pages
+2. Configure build settings:
+  - Build command: npm install && npm run build
+  - Build output directory: /dist
+  - NODE_VERSION: 22.14.0
+
+## WebAssembly Integration
+The psychrometric calculations are powered by a custom WebAssembly module. 
+The application automatically initializes the WASM module on startup.
+
+## Project Structure
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+psychroid-web/
+├── public/           # Static assets and files
+├── src/
+│   ├── components/   # React components
+│   ├── lib/          # Utility functions and WASM files
+│   ├── App.tsx       # Main application component
+│   └── main.tsx      # Entry point
+└── index.html        # HTML template
 ```
