@@ -55,7 +55,6 @@ const CookieConsent = () => {
                 <div>
                     <p className="text-sm">
                         We use analytics cookies to improve our service.
-                        This data is completely anonymous and helps us enhance your experience.
                         By clicking "Accept", you consent to our use of cookies.
                     </p>
                 </div>
