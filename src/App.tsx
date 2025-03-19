@@ -65,20 +65,20 @@ const initialStateDefaultSI: InitialState = {
   value2: 50.0                            // 50 % 
 };
 
-// Default initial state in IP units
-const initialStateDefaultIP: InitialState = {
-  pressure: 14.696,                       // 14.696 psi
-  flowRateType: "volumetric_flow_rate",   // volumetric_flow_rate
-  flowRateValue: 1000.0,                  // 1000 cfm (ft³/min)
-  parameterType1: "t_dry_bulb",           // t_dry_bulb
-  value1: 85.0,                           // 85 °F
-  parameterType2: "relative_humidity",    // relative_humidity
-  value2: 50.0                            // 50 %
-};
+// // Default initial state in IP units
+// const initialStateDefaultIP: InitialState = {
+//   pressure: 14.696,                       // 14.696 psi
+//   flowRateType: "volumetric_flow_rate",   // volumetric_flow_rate
+//   flowRateValue: 1000.0,                  // 1000 cfm (ft³/min)
+//   parameterType1: "t_dry_bulb",           // t_dry_bulb
+//   value1: 85.0,                           // 85 °F
+//   parameterType2: "relative_humidity",    // relative_humidity
+//   value2: 50.0                            // 50 %
+// };
 
 const App = () => {
   // Unit system
-  const [isSI, setIsSI] = useState(true);
+  const [isSI, _] = useState(true);
   // Ref for Initialization component
   const initializationRef = useRef<InitializationRef>(null);
   // WASM init state
