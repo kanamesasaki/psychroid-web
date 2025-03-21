@@ -15,8 +15,18 @@ interface ProcessCardProps {
     onChange: (data: Process) => void;
 }
 
+// export type ProcessCardRef = {
+//     resetForm: () => void;
+// };
+
 const ProcessCard = ({ processData, onChange }: ProcessCardProps) => {
     const localProcessData: Process = processData;
+
+    // const resetForm = () => {
+    //     localProcessData.processType = "Heating";
+    //     localProcessData.inputType = "Power";
+    //     localProcessData.value = 0.0;
+    // }
 
     const handleProcessTypeChange = (value: string) => {
         let inputType: string = "";

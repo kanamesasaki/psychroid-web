@@ -251,7 +251,7 @@ const App = () => {
       } catch (err) {
         console.error("Failed to create moist air object:", err);
         setInitialState(initialStateDefaultSI);
-        // initializationRef.current?.resetForm();
+        initializationRef.current?.resetForm();
         return
       }
 
