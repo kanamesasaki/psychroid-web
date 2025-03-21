@@ -302,6 +302,21 @@ const App = () => {
         </div>
       </main>
 
+      {/* Footer with centered content */}
+      <footer className="border-t py-2 px-6">
+        <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px] flex justify-end items-center">
+          <div className="flex space-x-6 items-center">
+            {/* <div className="text-sm text-gray-600">
+              © {new Date().getFullYear()} K. Sasaki
+            </div>
+            <span className="text-gray-300">|</span> */}
+            <a href="/terms/" className="text-sm text-gray-600 hover:underline">
+              Terms & Conditions
+            </a>
+          </div>
+        </div>
+      </footer>
+
       <ContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
