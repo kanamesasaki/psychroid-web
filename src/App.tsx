@@ -3,7 +3,6 @@ import Initialization, { InitializationRef } from "./components/Initialization";
 import Chart from "./components/Chart";
 import Header from "./components/Header";
 import StateTable from "./components/StateTable";
-import ContactModal from './components/ContactModal';
 import init, { relativeHumidityLine, specificEnthalpyLine, WasmMoistAir } from './lib/psychroid';
 import ProcessArray from "./components/ProcessArray";
 import CookieConsent from './components/CookieConsent';
@@ -92,8 +91,6 @@ const App = () => {
   const [processes, setProcesses] = useState<Process[]>([]);
   // State array
   const [states, setStates] = useState<Array<State>>([]);
-  // Contact Modal
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // Load WASM module
   useEffect(() => {
@@ -282,8 +279,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header onContactClick={() => setIsContactModalOpen(true)} />
-
+      <Header />
       <main className="flex-grow pt-2 px-6 pb-6">
         <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -304,23 +300,22 @@ const App = () => {
 
       {/* Footer with centered content */}
       <footer className="border-t py-2 px-6">
-        <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px] flex justify-end items-center">
+        <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px] flex justify-start items-center">
           <div className="flex space-x-6 items-center">
-            {/* <div className="text-sm text-gray-600">
-              © {new Date().getFullYear()} K. Sasaki
+            <div className="text-sm text-gray-600">
+              © {new Date().getFullYear()} K. Sasaki. All rights reserved.
             </div>
-            <span className="text-gray-300">|</span> */}
+            <span className="text-gray-300">|</span>
+            <a href="/contact/" className="text-sm text-gray-600 hover:underline">
+              Contact
+            </a>
+            <span className="text-gray-300">|</span>
             <a href="/terms/" className="text-sm text-gray-600 hover:underline">
               Terms & Conditions
             </a>
           </div>
         </div>
       </footer>
-
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-      />
 
       <CookieConsent />
     </div>

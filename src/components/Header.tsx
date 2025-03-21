@@ -1,9 +1,4 @@
-// Desc: Header component for the app
-interface HeaderProps {
-    onContactClick: () => void;
-}
-
-const Header = ({ onContactClick }: HeaderProps) => {
+const Header = () => {
     return (
         <header className="border-b py-4 mb-3">
             <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px] px-4 sm:px-6 flex items-center justify-between">
@@ -19,14 +14,6 @@ const Header = ({ onContactClick }: HeaderProps) => {
                         </span>
                     </a>
                 </div>
-                <nav className="flex items-center space-x-5">
-                    <button
-                        onClick={onContactClick}
-                        className="text-sm font-medium hover:text-primary cursor-pointer bg-transparent border-none"
-                    >
-                        Contact
-                    </button>
-                </nav>
             </div>
         </header>
     );
