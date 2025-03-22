@@ -2,6 +2,8 @@
 
 Interactive psychrometric chart calculator for HVAC engineers. Calculate and visualize air properties, process flows, and energy requirements.
 
+🔗 **[Website: https://psychroid.thermocraft.space/](https://psychroid.thermocraft.space/)**
+
 <img alt="Psychrometric Chart Screenshot" src="https://psychroid.thermocraft.space/og-image.png">
 
 ## Features
