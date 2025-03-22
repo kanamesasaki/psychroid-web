@@ -4,7 +4,7 @@ import Chart from "./components/Chart";
 import Header from "./components/Header";
 import StateTable from "./components/StateTable";
 import init, { relativeHumidityLine, specificEnthalpyLine, WasmMoistAir } from './lib/psychroid';
-import ProcessArray from "./components/ProcessArray";
+import ProcessArray, { ProcessArrayRef } from "./components/ProcessArray";
 import CookieConsent from './components/CookieConsent';
 
 export type Point = {
@@ -80,6 +80,8 @@ const App = () => {
   const [isSI, _] = useState(true);
   // Ref for Initialization component
   const initializationRef = useRef<InitializationRef>(null);
+  // Ref for ProcessArray component
+  const ProcessArrayRef = useRef<ProcessArrayRef>(null);
   // WASM init state
   const [wasmInitialized, setWasmInitialized] = React.useState(false);
   // Chart lines
@@ -174,6 +176,25 @@ const App = () => {
     setProcesses(processes);
   };
 
+  const resetProcessById = (id: number) => {
+    const updatedProcesses = processes.map(process => {
+      if (process.id === id) {
+        // 指定されたIDのプロセスをデフォルト値にリセット
+        return {
+          ...process,
+          processType: "Heating",
+          inputType: "Power",
+          value: 0.0
+        };
+      }
+      // IDが一致しないプロセスはそのまま返す
+      return process;
+    });
+
+    // 更新されたプロセス配列をセット
+    setProcesses(updatedProcesses);
+  };
+
   const calculateNextState = (prev: State, proc: Process) => {
     const moistAir: WasmMoistAir = WasmMoistAir.fromHumidityRatio(prev.tDryBulb, prev.humidityRatio, initialState.pressure, true);
 
@@ -194,6 +215,10 @@ const App = () => {
       }
     } catch (err) {
       console.error(`Error in process ${proc.id} (${proc.processType}):`, err);
+      // Reset process which caused an error
+      resetProcessById(proc.id);
+      // Reset ProcessCard form UI
+      ProcessArrayRef.current?.resetProcessById(proc.id);
       // return previous state (only id is updated)
       return { ...prev, id: prev.id + 1 };
     }
@@ -247,11 +272,14 @@ const App = () => {
 
       } catch (err) {
         console.error("Failed to create moist air object:", err);
+        // Reset InitialState
         setInitialState(initialStateDefaultSI);
+        // Reset Initialization form UI
         initializationRef.current?.resetForm();
         return
       }
 
+      // Add initial state to the state array
       const state0: State = {
         id: 0,
         tDryBulb: moistAir.tDryBulb(),
@@ -265,10 +293,10 @@ const App = () => {
       }
       stateArray.push(state0);
 
+      // Apply processes sequentially
       processes.map((proc, index) => {
         const prevState = stateArray[index];
         const nextState = calculateNextState(prevState, proc);
-        // const nextState = prevState;
         stateArray.push(nextState);
       })
 
@@ -292,7 +320,10 @@ const App = () => {
                 ref={initializationRef}
                 onInitialize={handleInitialize}
               />
-              <ProcessArray onApplyProcesses={handleApplyProcesses} />
+              <ProcessArray
+                onApplyProcesses={handleApplyProcesses}
+                ref={ProcessArrayRef}
+              />
             </div>
           </div>
         </div>
