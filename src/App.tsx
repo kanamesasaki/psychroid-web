@@ -303,7 +303,7 @@ const App = () => {
         <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px] flex justify-start items-center">
           <div className="flex space-x-6 items-center">
             <div className="text-sm text-gray-600">
-              © {new Date().getFullYear()} K. Sasaki. All rights reserved.
+              © {new Date().getFullYear()} K. Sasaki
             </div>
             <span className="text-gray-300">|</span>
             <a href="/contact/" className="text-sm text-gray-600 hover:underline">
