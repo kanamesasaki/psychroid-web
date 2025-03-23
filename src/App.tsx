@@ -77,7 +77,7 @@ const initialStateDefaultSI: InitialState = {
 
 const App = () => {
   // Unit system
-  const [isSI, _] = useState(true);
+  const [isSI, setIsSI] = useState(true);
   // Ref for Initialization component
   const initializationRef = useRef<InitializationRef>(null);
   // Ref for ProcessArray component
@@ -307,7 +307,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header isSI={isSI} setIsSI={setIsSI} />
       <main className="flex-grow pt-2 px-6 pb-6">
         <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -319,6 +319,7 @@ const App = () => {
               <Initialization
                 ref={initializationRef}
                 onInitialize={handleInitialize}
+                isSI={isSI}
               />
               <ProcessArray
                 onApplyProcesses={handleApplyProcesses}
