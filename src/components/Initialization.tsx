@@ -121,7 +121,7 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                             </div>
                             <div className="space-y-1">
                                 <Select onValueChange={setFlowRateType} value={flowRateType}>
-                                    <SelectTrigger className="w-full py-1 h-9">
+                                    <SelectTrigger className="w-full py-1 h-9" aria-label="Flow Rate Type">
                                         <SelectValue placeholder="volumetric_flow_rate" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -143,7 +143,7 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                             </div>
                             <div className="space-y-1">
                                 <Select onValueChange={setInputType2} value={inputType2}>
-                                    <SelectTrigger className="w-full py-1 h-9">
+                                    <SelectTrigger className="w-full py-1 h-9" aria-label="Input Type">
                                         <SelectValue placeholder="relative_humidity" />
                                     </SelectTrigger>
                                     <SelectContent>

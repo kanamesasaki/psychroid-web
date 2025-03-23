@@ -68,7 +68,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>
                                 <Label className="mb-1.5">Process Type</Label>
                                 <Select value={localProcessData.processType} onValueChange={handleProcessTypeChange}>
-                                    <SelectTrigger className="w-full py-1 h-9">
+                                    <SelectTrigger className="w-full py-1 h-9" aria-label="Process Type">
                                         <SelectValue placeholder="Select process type" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -81,7 +81,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>
                                 <Label className="mb-1.5">Input Type</Label>
                                 <Select value={localProcessData.inputType} onValueChange={handleInputTypeChange}>
-                                    <SelectTrigger className="w-full py-1 h-9">
+                                    <SelectTrigger className="w-full py-1 h-9" aria-label="Input Type">
                                         <SelectValue placeholder="Select option" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -113,7 +113,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>
                                 <Label className="mb-1.5">Process Type</Label>
                                 <Select value={localProcessData.processType} onValueChange={handleProcessTypeChange}>
-                                    <SelectTrigger className="w-full">
+                                    <SelectTrigger className="w-full" aria-label="Process Type">
                                         <SelectValue placeholder="Select process type" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -126,7 +126,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>
                                 <Label className="mb-1.5">Input Type</Label>
                                 <Select value={localProcessData.inputType} onValueChange={handleInputTypeChange}>
-                                    <SelectTrigger className="w-full">
+                                    <SelectTrigger className="w-full" aria-label="Input Type">
                                         <SelectValue placeholder="Select option" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -158,7 +158,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>
                                 <Label className="mb-1.5">Process Type</Label>
                                 <Select value={localProcessData.processType} onValueChange={handleProcessTypeChange}>
-                                    <SelectTrigger className="w-full">
+                                    <SelectTrigger className="w-full" aria-label="Process Type">
                                         <SelectValue placeholder="Select process type" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -171,7 +171,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>
                                 <Label className="mb-1.5">Input Type</Label>
                                 <Select value={localProcessData.inputType} onValueChange={handleInputTypeChange}>
-                                    <SelectTrigger className="w-full">
+                                    <SelectTrigger className="w-full" aria-label="Input Type">
                                         <SelectValue placeholder="Select option" />
                                     </SelectTrigger>
                                     <SelectContent>
