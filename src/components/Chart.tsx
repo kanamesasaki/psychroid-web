@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { Download } from 'lucide-react';
 
 interface ChartProps {
+    isSI: boolean;
     rhLines: Line[];
     enthalpyLines: Line[];
     states: State[];
@@ -13,15 +14,15 @@ interface ChartProps {
 const width = 400;
 const height = 300;
 const margin = { top: 5, right: 55, bottom: 40, left: 10 };
-const xMin = -15.0;
-const xMax = 40.0;
-const yMin = 0.0;
-const yMax = 0.03;
 
-
-const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
+const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
     const svgRef = useRef<SVGSVGElement>(null);
     const [chartInit, setChartInit] = useState(false);
+
+    const xMin = isSI ? -15.0 : 5.0;
+    const xMax = isSI ? 40.0 : 104.0;
+    const yMin = 0.0;
+    const yMax = 0.03;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // exporting SVG, called when the button is clicked
@@ -86,7 +87,7 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
     useEffect(() => {
         if (!svgRef.current) return;
         if (rhLines.length === 0) return;
-        // if (enthalpyLines.length === 0) return;
+        if (enthalpyLines.length === 0) return;
 
         // Set scales based on min/max values
         const xScale = d3.scaleLinear()
@@ -167,7 +168,7 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
             .attr('y', 27)
             .attr('fill', 'black')
             .attr('font-size', '8px')
-            .text('Dry-bulb temperature [°C]');
+            .text(`Dry-bulb temperature [${isSI ? '°C' : '°F'}]`);
 
         svg.select('.x-axis')
             .selectAll('.tick text')
@@ -184,7 +185,7 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
             .attr('x', -height / 2 - 30)
             .attr('fill', 'black')
             .attr('font-size', '8px')
-            .text('Humidity ratio [kg/kg]');
+            .text(`Humidity ratio [${isSI ? 'kg/kg' : 'lb/lb'}]`);
 
         svg.select('.y-axis')
             .selectAll('.tick text')
@@ -319,7 +320,7 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
         });
 
         setChartInit(true);
-    }, [rhLines, enthalpyLines]);
+    }, [rhLines, enthalpyLines, isSI]);
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // Plot points for each state
@@ -378,8 +379,8 @@ const Chart = ({ rhLines, enthalpyLines, states }: ChartProps) => {
                     .duration(200)
                     .style('opacity', 0.9);
                 tooltip.html(`ID: ${d.id}<br/>` +
-                    `Dry-Bulb Temperature: ${d.tDryBulb.toFixed(1)}°C<br/>` +
-                    `Humidity Ratio: ${d.humidityRatio.toFixed(4)} kg/kg`)
+                    `Dry-Bulb Temperature: ${d.tDryBulb.toFixed(1)}${isSI ? '°C' : '°F'}<br/>` +
+                    `Humidity Ratio: ${d.humidityRatio.toFixed(4)} ${isSI ? 'kg/kg' : 'lb/lb'}`)
                     .style('left', (event.pageX + 10) + 'px')
                     .style('top', (event.pageY - 28) + 'px');
             })

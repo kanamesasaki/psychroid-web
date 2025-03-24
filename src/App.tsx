@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Initialization, { InitializationRef } from "./components/Initialization";
 import Chart from "./components/Chart";
 import Header from "./components/Header";
@@ -64,16 +64,16 @@ const initialStateDefaultSI: InitialState = {
   value2: 50.0                            // 50 % 
 };
 
-// // Default initial state in IP units
-// const initialStateDefaultIP: InitialState = {
-//   pressure: 14.696,                       // 14.696 psi
-//   flowRateType: "volumetric_flow_rate",   // volumetric_flow_rate
-//   flowRateValue: 1000.0,                  // 1000 cfm (ft³/min)
-//   parameterType1: "t_dry_bulb",           // t_dry_bulb
-//   value1: 85.0,                           // 85 °F
-//   parameterType2: "relative_humidity",    // relative_humidity
-//   value2: 50.0                            // 50 %
-// };
+// Default initial state in IP units
+const initialStateDefaultIP: InitialState = {
+  pressure: 14.696,                       // 14.696 psi
+  flowRateType: "volumetric_flow_rate",   // volumetric_flow_rate
+  flowRateValue: 1000.0,                  // 1000 cfm (ft³/min)
+  parameterType1: "t_dry_bulb",           // t_dry_bulb
+  value1: 85.0,                           // 85 °F
+  parameterType2: "relative_humidity",    // relative_humidity
+  value2: 50.0                            // 50 %
+};
 
 const App = () => {
   // Unit system
@@ -83,12 +83,12 @@ const App = () => {
   // Ref for ProcessArray component
   const ProcessArrayRef = useRef<ProcessArrayRef>(null);
   // WASM init state
-  const [wasmInitialized, setWasmInitialized] = React.useState(false);
+  const [wasmInitialized, setWasmInitialized] = useState(false);
   // Chart lines
-  const [rhLines, setRhLines] = React.useState<Line[]>([]);
-  const [enthalpyLines, setEnthalpyLines] = React.useState<Line[]>([]);
+  const [rhLines, setRhLines] = useState<Line[]>([]);
+  const [enthalpyLines, setEnthalpyLines] = useState<Line[]>([]);
   // initial state
-  const [initialState, setInitialState] = React.useState<InitialState>(initialStateDefaultSI);
+  const [initialState, setInitialState] = useState<InitialState>(initialStateDefaultSI);
   // Process array
   const [processes, setProcesses] = useState<Process[]>([]);
   // State array
@@ -117,10 +117,10 @@ const App = () => {
     rhValues.forEach(rh => {
       const wasmPoints = relativeHumidityLine(
         rh,                       // RH value (0.1 to 1.0)
-        initialState.pressure,    // Standard pressure
+        isSI ? 101325 : 14.696,   // Standard pressure
         isSI ? -15 : 5,           // Min dry-bulb temperature
         isSI ? 40 : 104,          // Max dry-bulb temperature
-        isSI                      // Use SI units
+        isSI                      // Use SI or IP units
       );
 
       rhLines.push({
@@ -144,7 +144,7 @@ const App = () => {
     enthalpyValues.forEach(enthalpy => {
       const wasmPoints = specificEnthalpyLine(
         enthalpy,                 // Enthalpy value
-        initialState.pressure,    // Standard pressure
+        isSI ? 101325 : 14.696,   // Standard pressure
         isSI ? -15 : 5,           // Min dry-bulb temperature
         isSI ? 40 : 104,          // Max dry-bulb temperature
         isSI                      // Use SI units
@@ -166,7 +166,7 @@ const App = () => {
       setEnthalpyLines(getEnthalpyLines());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wasmInitialized, initialState]);
+  }, [wasmInitialized, initialState, isSI]);
 
   const handleInitialize = (initialStateInput: InitialState) => {
     setInitialState(initialStateInput);
@@ -273,7 +273,11 @@ const App = () => {
       } catch (err) {
         console.error("Failed to create moist air object:", err);
         // Reset InitialState
-        setInitialState(initialStateDefaultSI);
+        if (isSI) {
+          setInitialState(initialStateDefaultSI);
+        } else {
+          setInitialState(initialStateDefaultIP);
+        }
         // Reset Initialization form UI
         initializationRef.current?.resetForm();
         return
@@ -312,8 +316,8 @@ const App = () => {
         <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <div className="col-span-1 md:col-span-7">
-              <Chart rhLines={rhLines} enthalpyLines={enthalpyLines} states={states} />
-              <StateTable states={states} />
+              <Chart isSI={isSI} rhLines={rhLines} enthalpyLines={enthalpyLines} states={states} />
+              <StateTable isSI={isSI} states={states} />
             </div>
             <div className="col-span-1 md:col-span-5">
               <Initialization
