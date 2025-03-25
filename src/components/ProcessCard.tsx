@@ -12,6 +12,7 @@ import { Label } from "./ui/label";
 import { Process } from "../App";
 
 interface ProcessCardProps {
+    isSI: boolean;
     processData: Process;
     onChange: (data: Process) => void;
 }
@@ -21,7 +22,7 @@ export type ProcessCardRef = {
 };
 
 const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
-    ({ processData, onChange }, ref: React.ForwardedRef<ProcessCardRef>) => {
+    ({ isSI, processData, onChange }, ref: React.ForwardedRef<ProcessCardRef>) => {
         const localProcessData: Process = processData;
 
         const resetForm = () => {
@@ -59,6 +60,15 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
             onChange(localProcessData);
         };
 
+        // Unit system dependent labels
+        // const humidityRatioUnit = isSI ? "kg/kg" : "lb/lb";
+        // const pressureUnit = isSI ? "Pa" : "Psi";
+        const temperatureUnit = isSI ? "°C" : "°F";
+        // const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
+        // const volumetricFlowwRateUnit = isSI ? "m³/h" : "ft³/min";
+        const massFlowRateUnit = isSI ? "kg/s" : "lb/h";
+        const powerUnit = isSI ? "kW" : "Btu/h";
+
         const renderInputs = () => {
             switch (localProcessData.processType) {
                 case "Heating":
@@ -95,7 +105,10 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>{/* Left bottom is blank */}</div>
                             <div>
                                 <Label className="mb-1.5">
-                                    {localProcessData.inputType === "Power" ? "Power [kW]" : "ΔT [°C]"}
+                                    {localProcessData.inputType === "Power" ?
+                                        `Power [${powerUnit}]` :
+                                        `ΔT [${temperatureUnit}]`
+                                    }
                                 </Label>
                                 <Input
                                     type="number"
@@ -140,7 +153,10 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>{/* Left bottom is blank */}</div>
                             <div>
                                 <Label className="mb-1.5">
-                                    {localProcessData.inputType === "Power" ? "Power [kW]" : "ΔT [°C]"}
+                                    {localProcessData.inputType === "Power" ?
+                                        `Power [${powerUnit}]` :
+                                        `ΔT [${temperatureUnit}]`
+                                    }
                                 </Label>
                                 <Input
                                     type="number"
@@ -185,7 +201,10 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                             <div>{/* Left bottom is blank */}</div>
                             <div>
                                 <Label className="mb-1.5">
-                                    {localProcessData.inputType === "ΔW Adiabatic" ? "ΔW Adiabatic [kg/s]" : "ΔW Isotherm [kg/s]"}
+                                    {localProcessData.inputType === "ΔW Adiabatic" ?
+                                        `ΔW Adiabatic [${massFlowRateUnit}]` :
+                                        `ΔW Isotherm [${massFlowRateUnit}]`
+                                    }
                                 </Label>
                                 <Input
                                     type="number"

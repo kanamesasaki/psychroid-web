@@ -14,7 +14,7 @@ const StateTable: React.FC<StateTableProps> = ({ isSI, states }) => {
     const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
     const volumetricFlowwRateUnit = isSI ? "m³/h" : "ft³/min";
     const densityUnit = isSI ? "kg/m³" : "lb/ft³";
-    // const massFlowRateUnit = isSI ? "kg/s" : "lb/s";
+    const massFlowRateUnit = isSI ? "kg/s" : "lb/h";
 
     // tooltip for table header
     const headerTooltips = {
@@ -26,6 +26,7 @@ const StateTable: React.FC<StateTableProps> = ({ isSI, states }) => {
         "twb": `Wet-bulb temperature [${temperatureUnit}]`,
         "tdew": `Dew point temperature [${temperatureUnit}]`,
         "rho": `Density of moist air [${densityUnit}]`,
+        "mdot": `Mass flow rate of dry air [${massFlowRateUnit}]`,
         "vdot": `Volumetric flow rate [${volumetricFlowwRateUnit}]`,
     };
 
@@ -63,6 +64,7 @@ const StateTable: React.FC<StateTableProps> = ({ isSI, states }) => {
                             <HeaderTooltip id="twb">T<sub>wb</sub> [{temperatureUnit}]</HeaderTooltip>
                             <HeaderTooltip id="tdew">T<sub>dew</sub> [{temperatureUnit}]</HeaderTooltip>
                             <HeaderTooltip id="rho">ρ [{densityUnit}]</HeaderTooltip>
+                            <HeaderTooltip id="mdot">m&#x0307;<sub>da</sub> [{massFlowRateUnit}]</HeaderTooltip>
                             <HeaderTooltip id="vdot">V&#x0307; [{volumetricFlowwRateUnit}]</HeaderTooltip>
                         </tr>
                     </thead>
@@ -77,12 +79,13 @@ const StateTable: React.FC<StateTableProps> = ({ isSI, states }) => {
                                 <td className="px-4 py-2 border-b">{state.tWetBulb.toFixed(2)}</td>
                                 <td className="px-4 py-2 border-b">{state.tDewPoint.toFixed(2)}</td>
                                 <td className="px-4 py-2 border-b">{state.density.toFixed(3)}</td>
+                                <td className="px-4 py-2 border-b">{state.dryAirMassFlowRate.toFixed(2)}</td>
                                 <td className="px-4 py-2 border-b">
                                     {isSI
                                         // SI unit: m³/h (Conversion from mass flow rate [kg/s])
                                         ? (state.dryAirMassFlowRate * 3600.0 * (1.0 + state.humidityRatio) / state.density).toFixed(1)
-                                        // IP unit: ft³/min (CFM) (Conversion from  mass flow rate [lb/s])
-                                        : (state.dryAirMassFlowRate * 60.0 * (1.0 + state.humidityRatio) / state.density).toFixed(1)
+                                        // IP unit: ft³/min (CFM) (Conversion from  mass flow rate [lb/h])
+                                        : (state.dryAirMassFlowRate / 60.0 * (1.0 + state.humidityRatio) / state.density).toFixed(1)
                                     }
                                 </td>
                             </tr>

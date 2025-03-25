@@ -1,15 +1,21 @@
-import React, { useState, useRef, forwardRef, useImperativeHandle } from "react";
+import React, { useState, useRef, forwardRef, useImperativeHandle, useEffect } from "react";
 import ProcessCard, { ProcessCardRef } from "./ProcessCard";
 import { Button } from "./ui/button";
 import { SquarePlus } from "lucide-react";
 import { Process } from "../App";
 
 export type ProcessArrayRef = {
-    resetProcessById: (id: number) => void;
+    resetProcessById: (id: number) => void
 };
 
-const ProcessArray = forwardRef<ProcessArrayRef, { onApplyProcesses: (processes: Process[]) => void }>(
-    ({ onApplyProcesses }, ref: React.ForwardedRef<ProcessArrayRef>) => {
+const ProcessArray = forwardRef<
+    ProcessArrayRef,
+    {
+        onApplyProcesses: (processes: Process[]) => void;
+        isSI: boolean;
+    }
+>(
+    ({ onApplyProcesses, isSI }, ref: React.ForwardedRef<ProcessArrayRef>) => {
         const [processes, setProcesses] = useState<Process[]>([
             { id: 0, processType: "Heating", inputType: "Power", value: 0.0 } as Process,
         ]);
@@ -38,6 +44,13 @@ const ProcessArray = forwardRef<ProcessArrayRef, { onApplyProcesses: (processes:
             }
         }
 
+        useEffect(() => {
+            const initialProcesses = [
+                { id: 0, processType: "Heating", inputType: "Power", value: 0.0 } as Process,
+            ]
+            setProcesses(initialProcesses);
+        }, [isSI]);
+
         useImperativeHandle(ref, () => ({
             resetProcessById,
         }));
@@ -52,6 +65,7 @@ const ProcessArray = forwardRef<ProcessArrayRef, { onApplyProcesses: (processes:
                         ref={el => {
                             if (el) processCardRefs.current[proc.id] = el;
                         }}
+                        isSI={isSI}
                     />
                 ))}
                 <div className="grid grid-cols-2 gap-4">

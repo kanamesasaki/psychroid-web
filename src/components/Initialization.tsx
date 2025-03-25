@@ -42,15 +42,12 @@ const Initialization = forwardRef<
         isSI: boolean;
     }
 >(
-    ({ onInitialize, isSI }: {
-        onInitialize: (initialStateInput: InitialState) => void;
-        isSI: boolean;
-    }, ref: React.ForwardedRef<InitializationRef>) => {
+    ({ onInitialize, isSI }, ref: React.ForwardedRef<InitializationRef>) => {
         const defaultValues = {
             pressure: isSI ? "101325.0" : "14.696",
             flowRateType: "volumetric_flow_rate",
-            flowRateValue: isSI ? "1500.0" : "1000.0",
-            value1: isSI ? "30.0" : "85.0",
+            flowRateValue: isSI ? "1700.0" : "1000.0",
+            value1: isSI ? "20.0" : "68.0",
             inputType2: "relative_humidity",
             value2: "50.0"
         };
@@ -79,8 +76,8 @@ const Initialization = forwardRef<
         React.useEffect(() => {
             setPressureInput(isSI ? "101325.0" : "14.696");
             setFlowRateType("volumetric_flow_rate");
-            setFlowRateInput(isSI ? "1500.0" : "1000.0");
-            setInputValue1(isSI ? "30.0" : "85.0");
+            setFlowRateInput(isSI ? "1700.0" : "1000.0");
+            setInputValue1(isSI ? "20.0" : "68.0");
             setInputType2("relative_humidity");
             setInputValue2("50.0");
         }, [isSI]);
