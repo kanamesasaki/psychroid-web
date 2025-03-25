@@ -24,13 +24,30 @@ export type InitializationRef = {
     resetForm: () => void;
 };
 
-const Initialization = forwardRef<InitializationRef, { onInitialize: (initialStateInput: InitialState) => void }>(
-    ({ onInitialize }: { onInitialize: (initialStateInput: InitialState) => void }, ref: React.ForwardedRef<InitializationRef>) => {
+// Initialization component is defined as a forwardRef
+// forwardRef<RefType, PropsType>((props, ref) => { ... })
+//
+// Generic types:
+// RefType: InitializationRef
+// PropsType: { onInitialize: (initialStateInput: InitialState) => void, isSI: boolean }
+//
+// Component variables:
+// props: { onInitialize: (initialStateInput: InitialState) => void, isSI: boolean }
+// ref: React.ForwardedRef<InitializationRef>
+// 
+const Initialization = forwardRef<
+    InitializationRef,
+    {
+        onInitialize: (initialStateInput: InitialState) => void;
+        isSI: boolean;
+    }
+>(
+    ({ onInitialize, isSI }, ref: React.ForwardedRef<InitializationRef>) => {
         const defaultValues = {
-            pressure: "101325.0",
+            pressure: isSI ? "101325.0" : "14.696",
             flowRateType: "volumetric_flow_rate",
-            flowRateValue: "1500.0",
-            value1: "30.0",
+            flowRateValue: isSI ? "1700.0" : "1000.0",
+            value1: isSI ? "20.0" : "68.0",
             inputType2: "relative_humidity",
             value2: "50.0"
         };
@@ -55,6 +72,16 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
             resetForm,
         }));
 
+        // Update values when unit system changes
+        React.useEffect(() => {
+            setPressureInput(isSI ? "101325.0" : "14.696");
+            setFlowRateType("volumetric_flow_rate");
+            setFlowRateInput(isSI ? "1700.0" : "1000.0");
+            setInputValue1(isSI ? "20.0" : "68.0");
+            setInputType2("relative_humidity");
+            setInputValue2("50.0");
+        }, [isSI]);
+
         const handleSubmit = (e: React.FormEvent) => {
             e.preventDefault();
             const initialStateInput: InitialState = {
@@ -76,17 +103,25 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                 case "relative_humidity":
                     return { min: 0.0, max: 100.0 };
                 case "t_wet_bulb":
-                    return { min: -100.0, max: 200.0 };
+                    return { min: isSI ? -100.0 : -148.0, max: isSI ? 200.0 : 392.0 };
                 case "t_dew_point":
-                    return { min: -100.0, max: 200.0 };
+                    return { min: isSI ? -100.0 : -148.0, max: isSI ? 200.0 : 392.0 };
                 case "specific_enthalpy":
-                    return { min: 0.0, max: 500.0 };
+                    return { min: 0.0, max: isSI ? 500.0 : 215.0 };
                 default:
                     return { min: 0.0, max: 1.0 };
             }
         };
 
         const { min, max } = getRangeForInputType(inputType2);
+
+        // Unit system dependent labels
+        const humidityRatioUnit = isSI ? "kg/kg" : "lb/lb";
+        const pressureUnit = isSI ? "Pa" : "Psi";
+        const temperatureUnit = isSI ? "°C" : "°F";
+        const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
+        const volumetricFlowwRateUnit = isSI ? "m³/h" : "ft³/min";
+        const massFlowRateUnit = isSI ? "kg/s" : "lb/s";
 
         return (
             <Card className="w-full mb-4">
@@ -99,23 +134,23 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <Label className="mb-1.5">Pressure [Pa]</Label>
+                                <Label className="mb-1.5">Pressure [{pressureUnit}]</Label>
                                 <Input
                                     type="number"
                                     value={pressureInput}
                                     onChange={(e) => setPressureInput(e.target.value)}
-                                    placeholder="101325.0"
+                                    placeholder={isSI ? "101325.0" : "14.696"}
                                 />
                             </div>
                             <div>
-                                <Label className="mb-1.5">Dry-bulb Temperature [°C]</Label>
+                                <Label className="mb-1.5">Dry-bulb Temperature [{temperatureUnit}]</Label>
                                 <Input
                                     type="number"
                                     value={inputValue1}
                                     onChange={(e) => setInputValue1(e.target.value)}
-                                    placeholder="30.0"
-                                    min="-100"
-                                    max="200"
+                                    placeholder={isSI ? "30.0" : "85.0"}
+                                    min={isSI ? "-100" : "-148"}
+                                    max={isSI ? "200" : "392"}
                                     step="any"
                                 />
                             </div>
@@ -127,9 +162,9 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                                     <SelectContent>
                                         <SelectGroup>
                                             <SelectLabel>Select Input Type</SelectLabel>
-                                            <SelectItem value="total_air_mass_flow_rate">Total air mass flow rate [kg/s]</SelectItem>
-                                            <SelectItem value="dry_air_mass_flow_rate">Dry air mass flow rate [kg/s]</SelectItem>
-                                            <SelectItem value="volumetric_flow_rate">Volumetric flow rate [m³/h]</SelectItem>
+                                            <SelectItem value="total_air_mass_flow_rate">Total air mass flow rate [{massFlowRateUnit}]</SelectItem>
+                                            <SelectItem value="dry_air_mass_flow_rate">Dry air mass flow rate [{massFlowRateUnit}]</SelectItem>
+                                            <SelectItem value="volumetric_flow_rate">Volumetric flow rate [{volumetricFlowwRateUnit}]</SelectItem>
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>
@@ -149,11 +184,11 @@ const Initialization = forwardRef<InitializationRef, { onInitialize: (initialSta
                                     <SelectContent>
                                         <SelectGroup>
                                             <SelectLabel>Select Input Type</SelectLabel>
-                                            <SelectItem value="humidity_ratio">Humidity Ratio [kg/kg]</SelectItem>
+                                            <SelectItem value="humidity_ratio">Humidity Ratio [{humidityRatioUnit}]</SelectItem>
                                             <SelectItem value="relative_humidity">Relative Humidity [%]</SelectItem>
-                                            <SelectItem value="t_wet_bulb">Wet-bulb Temperature [°C]</SelectItem>
-                                            <SelectItem value="t_dew_point">Dew-point Temperature [°C]</SelectItem>
-                                            <SelectItem value="specific_enthalpy">Specific Enthalpy [kJ/kg]</SelectItem>
+                                            <SelectItem value="t_wet_bulb">Wet-bulb Temperature [{temperatureUnit}]</SelectItem>
+                                            <SelectItem value="t_dew_point">Dew-point Temperature [{temperatureUnit}]</SelectItem>
+                                            <SelectItem value="specific_enthalpy">Specific Enthalpy [{enthalpyUnit}]</SelectItem>
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>

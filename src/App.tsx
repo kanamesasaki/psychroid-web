@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Initialization, { InitializationRef } from "./components/Initialization";
 import Chart from "./components/Chart";
 import Header from "./components/Header";
@@ -57,38 +57,38 @@ export type ChartSettings = {
 const initialStateDefaultSI: InitialState = {
   pressure: 101325,                       // 101325 Pa
   flowRateType: "volumetric_flow_rate", 	// volumetric_flow_rate
-  flowRateValue: 1500.0,                  // 1500 m³/h
+  flowRateValue: 1700.0,                  // 1500 m³/h
   parameterType1: "t_dry_bulb",           // t_dry_bulb
-  value1: 30.0,                           // 30 °C
+  value1: 20.0,                           // 20 °C
   parameterType2: "relative_humidity",    // relative_humidity
   value2: 50.0                            // 50 % 
 };
 
-// // Default initial state in IP units
-// const initialStateDefaultIP: InitialState = {
-//   pressure: 14.696,                       // 14.696 psi
-//   flowRateType: "volumetric_flow_rate",   // volumetric_flow_rate
-//   flowRateValue: 1000.0,                  // 1000 cfm (ft³/min)
-//   parameterType1: "t_dry_bulb",           // t_dry_bulb
-//   value1: 85.0,                           // 85 °F
-//   parameterType2: "relative_humidity",    // relative_humidity
-//   value2: 50.0                            // 50 %
-// };
+// Default initial state in IP units
+const initialStateDefaultIP: InitialState = {
+  pressure: 14.696,                       // 14.696 psi
+  flowRateType: "volumetric_flow_rate",   // volumetric_flow_rate
+  flowRateValue: 1000.0,                  // 1000 cfm (ft³/min)
+  parameterType1: "t_dry_bulb",           // t_dry_bulb
+  value1: 68.0,                           // 68 °F
+  parameterType2: "relative_humidity",    // relative_humidity
+  value2: 50.0                            // 50 %
+};
 
 const App = () => {
   // Unit system
-  const [isSI, _] = useState(true);
+  const [isSI, setIsSI] = useState(true);
   // Ref for Initialization component
   const initializationRef = useRef<InitializationRef>(null);
   // Ref for ProcessArray component
   const ProcessArrayRef = useRef<ProcessArrayRef>(null);
   // WASM init state
-  const [wasmInitialized, setWasmInitialized] = React.useState(false);
+  const [wasmInitialized, setWasmInitialized] = useState(false);
   // Chart lines
-  const [rhLines, setRhLines] = React.useState<Line[]>([]);
-  const [enthalpyLines, setEnthalpyLines] = React.useState<Line[]>([]);
+  const [rhLines, setRhLines] = useState<Line[]>([]);
+  const [enthalpyLines, setEnthalpyLines] = useState<Line[]>([]);
   // initial state
-  const [initialState, setInitialState] = React.useState<InitialState>(initialStateDefaultSI);
+  const [initialState, setInitialState] = useState<InitialState>(initialStateDefaultSI);
   // Process array
   const [processes, setProcesses] = useState<Process[]>([]);
   // State array
@@ -117,10 +117,10 @@ const App = () => {
     rhValues.forEach(rh => {
       const wasmPoints = relativeHumidityLine(
         rh,                       // RH value (0.1 to 1.0)
-        initialState.pressure,    // Standard pressure
+        isSI ? 101325 : 14.696,   // Standard pressure
         isSI ? -15 : 5,           // Min dry-bulb temperature
         isSI ? 40 : 104,          // Max dry-bulb temperature
-        isSI                      // Use SI units
+        isSI                      // Use SI or IP units
       );
 
       rhLines.push({
@@ -138,13 +138,13 @@ const App = () => {
     // enthalpy values: 5, 10, ... 50 Btu/lb_da
     const enthalpyValues = isSI
       ? Array.from({ length: 13 }, (_, i) => (i - 1) * 10)
-      : Array.from({ length: 10 }, (_, i) => (i + 1) * 5);
+      : Array.from({ length: 11 }, (_, i) => (i + 1) * 5);
     const enthalpyLines: Line[] = [];
 
     enthalpyValues.forEach(enthalpy => {
       const wasmPoints = specificEnthalpyLine(
         enthalpy,                 // Enthalpy value
-        initialState.pressure,    // Standard pressure
+        isSI ? 101325 : 14.696,   // Standard pressure
         isSI ? -15 : 5,           // Min dry-bulb temperature
         isSI ? 40 : 104,          // Max dry-bulb temperature
         isSI                      // Use SI units
@@ -166,7 +166,13 @@ const App = () => {
       setEnthalpyLines(getEnthalpyLines());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wasmInitialized, initialState]);
+  }, [wasmInitialized, initialState, isSI]);
+
+  // Reset initialState and processes when switching between SI and IP units
+  useEffect(() => {
+    setInitialState(isSI ? initialStateDefaultSI : initialStateDefaultIP);
+    setProcesses([]);
+  }, [isSI]);
 
   const handleInitialize = (initialStateInput: InitialState) => {
     setInitialState(initialStateInput);
@@ -196,7 +202,7 @@ const App = () => {
   };
 
   const calculateNextState = (prev: State, proc: Process) => {
-    const moistAir: WasmMoistAir = WasmMoistAir.fromHumidityRatio(prev.tDryBulb, prev.humidityRatio, initialState.pressure, true);
+    const moistAir: WasmMoistAir = WasmMoistAir.fromHumidityRatio(prev.tDryBulb, prev.humidityRatio, initialState.pressure, isSI);
 
     try {
       if (proc.processType === "Heating" && proc.inputType === "Power") {
@@ -237,7 +243,7 @@ const App = () => {
     return next;
   };
 
-  // Update states whenever initialState changes
+  // Update states whenever initialState or processes changes
   useEffect(() => {
     if (wasmInitialized) {
       const stateArray: State[] = [];
@@ -247,25 +253,28 @@ const App = () => {
       try {
         // Create moist air object based on the second input parameter
         if (initialState.parameterType2 === "humidity_ratio") {
-          moistAir = WasmMoistAir.fromHumidityRatio(initialState.value1, initialState.value2, initialState.pressure, true);
+          moistAir = WasmMoistAir.fromHumidityRatio(initialState.value1, initialState.value2, initialState.pressure, isSI);
         } else if (initialState.parameterType2 === "relative_humidity") {
-          moistAir = WasmMoistAir.fromRelativeHumidity(initialState.value1, initialState.value2 * 0.01, initialState.pressure, true);
+          moistAir = WasmMoistAir.fromRelativeHumidity(initialState.value1, initialState.value2 * 0.01, initialState.pressure, isSI);
         } else if (initialState.parameterType2 === "t_wet_bulb") {
-          moistAir = WasmMoistAir.fromTWetBulb(initialState.value1, initialState.value2, initialState.pressure, true);
+          moistAir = WasmMoistAir.fromTWetBulb(initialState.value1, initialState.value2, initialState.pressure, isSI);
         } else if (initialState.parameterType2 === "t_dew_point") {
-          moistAir = WasmMoistAir.fromTDewPoint(initialState.value1, initialState.value2, initialState.pressure, true);
+          moistAir = WasmMoistAir.fromTDewPoint(initialState.value1, initialState.value2, initialState.pressure, isSI);
         } else if (initialState.parameterType2 === "specific_enthalpy") {
-          moistAir = WasmMoistAir.fromSpecificEnthalpy(initialState.value1, initialState.value2, initialState.pressure, true);
+          moistAir = WasmMoistAir.fromSpecificEnthalpy(initialState.value1, initialState.value2, initialState.pressure, isSI);
         } else {
           throw new Error("Invalid parameter type");
         }
 
+        // Calculate dry air mass flow rate based on the first input parameter
         if (initialState.flowRateType === "total_air_mass_flow_rate") {
           dryAirMassFlowRate = initialState.flowRateValue * (1 + moistAir.humidityRatio());
         } else if (initialState.flowRateType === "dry_air_mass_flow_rate") {
           dryAirMassFlowRate = initialState.flowRateValue;
         } else if (initialState.flowRateType === "volumetric_flow_rate") {
-          dryAirMassFlowRate = initialState.flowRateValue / 3600.0 * moistAir.density() / (1 + moistAir.humidityRatio());
+          dryAirMassFlowRate = isSI ?
+            initialState.flowRateValue / 3600.0 * moistAir.density() / (1 + moistAir.humidityRatio()) : // kg/s (SI)
+            initialState.flowRateValue * 60.0 * moistAir.density() / (1 + moistAir.humidityRatio());    // lb/h (IP)
         } else {
           throw new Error("Invalid flow rate type");
         }
@@ -273,7 +282,11 @@ const App = () => {
       } catch (err) {
         console.error("Failed to create moist air object:", err);
         // Reset InitialState
-        setInitialState(initialStateDefaultSI);
+        if (isSI) {
+          setInitialState(initialStateDefaultSI);
+        } else {
+          setInitialState(initialStateDefaultIP);
+        }
         // Reset Initialization form UI
         initializationRef.current?.resetForm();
         return
@@ -307,22 +320,24 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header isSI={isSI} setIsSI={setIsSI} />
       <main className="flex-grow pt-2 px-6 pb-6">
         <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <div className="col-span-1 md:col-span-7">
-              <Chart rhLines={rhLines} enthalpyLines={enthalpyLines} states={states} />
-              <StateTable states={states} />
+              <Chart isSI={isSI} rhLines={rhLines} enthalpyLines={enthalpyLines} states={states} />
+              <StateTable isSI={isSI} states={states} />
             </div>
             <div className="col-span-1 md:col-span-5">
               <Initialization
                 ref={initializationRef}
                 onInitialize={handleInitialize}
+                isSI={isSI}
               />
               <ProcessArray
                 onApplyProcesses={handleApplyProcesses}
                 ref={ProcessArrayRef}
+                isSI={isSI}
               />
             </div>
           </div>
