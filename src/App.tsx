@@ -185,7 +185,7 @@ const App = () => {
   const resetProcessById = (id: number) => {
     const updatedProcesses = processes.map(process => {
       if (process.id === id) {
-        // 指定されたIDのプロセスをデフォルト値にリセット
+        // For given process id, reset to the default process 
         return {
           ...process,
           processType: "Heating",
@@ -193,11 +193,10 @@ const App = () => {
           value: 0.0
         };
       }
-      // IDが一致しないプロセスはそのまま返す
+      // For other processes, return the original process
       return process;
     });
-
-    // 更新されたプロセス配列をセット
+    // Set new process array
     setProcesses(updatedProcesses);
   };
 

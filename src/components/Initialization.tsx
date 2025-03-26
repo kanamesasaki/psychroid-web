@@ -202,17 +202,6 @@ const Initialization = forwardRef<
                                 />
                             </div>
                             <div className="flex items-center h-full">
-                                {/* <RadioGroup defaultValue="si" className="flex flex-row space-x-4">
-                                <Label className="mb-1.5">Unit System: </Label>
-                                <div className="flex items-center space-x-2">
-                                    <RadioGroupItem value="si" id="si" />
-                                    <Label htmlFor="SI">SI</Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <RadioGroupItem value="ip" id="ip" />
-                                    <Label htmlFor="IP">IP</Label>
-                                </div>
-                            </RadioGroup> */}
                             </div>
                             <div>
                                 <Button type="submit" className="w-full cursor-pointer">Set Initial State</Button>
