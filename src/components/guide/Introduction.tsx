@@ -28,17 +28,82 @@ const Introduction = () => {
                 </p>
                 <ul className="list-disc pl-10 mb-4 space-y-2">
                     <li>Evaluate air state and specify the following parameters:</li>
-                    <ul className="list-disc pl-10 mt-2 space-y-1">
-                        <li>Dry Bulb Temperature, <span className="font-medium">T<sub>db</sub></span></li>
-                        <li>Wet Bulb Temperature, <span className="font-medium">T<sub>wb</sub></span></li>
-                        <li>Dew Point Temperature, <span className="font-medium">T<sub>dew</sub></span></li>
-                        <li>Humidity Ratio, <span className="font-medium">W</span></li>
-                        <li>Relative Humidity, <span className="font-medium">RH</span></li>
-                        <li>Specific Enthalpy, <span className="font-medium">h</span></li>
-                        <li>Density, <span className="font-medium">ρ</span></li>
-                        <li>Dry Air Mass Flow Rate, <span className="font-medium">ṁ<sub>da</sub></span></li>
-                        <li>Volumetric Flow Rate, <span className="font-medium">V̇</span></li>
-                    </ul>
+                    <div className="overflow-x-auto">
+                        <table className="divide-y divide-gray-200 mt-2 mb-4 mx-auto" style={{ width: 'auto', maxWidth: '100%' }}>
+                            <thead>
+                                <tr>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Parameter
+                                    </th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Symbol
+                                    </th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        SI Unit
+                                    </th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        IP Unit
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200 text-sm">
+                                <tr>
+                                    <td className="px-6 py-2 whitespace-nowrap">Dry Bulb Temperature</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">T<sub>db</sub></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">°C</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">°F</td>
+                                </tr>
+                                <tr className="bg-gray-50">
+                                    <td className="px-6 py-2 whitespace-nowrap">Wet Bulb Temperature</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">T<sub>wb</sub></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">°C</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">°F</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-6 py-2 whitespace-nowrap">Dew Point Temperature</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">T<sub>dew</sub></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">°C</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">°F</td>
+                                </tr>
+                                <tr className="bg-gray-50">
+                                    <td className="px-6 py-2 whitespace-nowrap">Humidity Ratio</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">W</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">kg/kg<sub>da</sub></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">lb/lb<sub>da</sub></td>
+                                </tr>
+                                <tr>
+                                    <td className="px-6 py-2 whitespace-nowrap">Relative Humidity</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">RH</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">%</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">%</td>
+                                </tr>
+                                <tr className="bg-gray-50">
+                                    <td className="px-6 py-2 whitespace-nowrap">Specific Enthalpy</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">h</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">kJ/kg<sub>da</sub></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">Btu/lb<sub>da</sub></td>
+                                </tr>
+                                <tr>
+                                    <td className="px-6 py-2 whitespace-nowrap">Density</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">ρ</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">kg/m<sup>3</sup></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">lb/ft<sup>3</sup></td>
+                                </tr>
+                                <tr className="bg-gray-50">
+                                    <td className="px-6 py-2 whitespace-nowrap">Dry Air Mass Flow Rate</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">ṁ<sub>da</sub></td>
+                                    <td className="px-6 py-2 whitespace-nowrap">kg/s</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">lb/h</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-6 py-2 whitespace-nowrap">Volumetric Flow Rate</td>
+                                    <td className="px-6 py-2 whitespace-nowrap font-medium">V̇</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">m<sup>3</sup>/s</td>
+                                    <td className="px-6 py-2 whitespace-nowrap">cfm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <li>Multi-step air process calculation including Heating, Cooling, and Humidification</li>
                     <li>Air state and process visualization on the psychrometric chart</li>
                     <li>Support for both SI (metric) and IP (imperial) unit systems</li>
