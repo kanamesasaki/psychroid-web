@@ -1,5 +1,4 @@
 import { Switch } from "./ui/switch";
-import { Link } from "react-router-dom";
 
 interface HeaderProps {
     isSI: boolean;
