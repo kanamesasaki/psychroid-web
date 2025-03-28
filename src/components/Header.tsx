@@ -22,15 +22,25 @@ const Header = ({ isSI, setIsSI }: HeaderProps) => {
                     </a>
                 </div>
 
-                {/* Unit System Toggle */}
-                <div className="flex items-center space-x-3">
-                    <span className="text-sm font-medium">IP</span>
-                    <Switch
-                        id="unit-toggle"
-                        checked={isSI}
-                        onCheckedChange={setIsSI}
-                    />
-                    <span className="text-sm font-medium">SI</span>
+                {/* Right side elements: Navigation + Unit Toggle */}
+                <div className="flex items-center space-x-6">
+                    {/* Navigation Links */}
+                    <div className="flex items-center mr-10">
+                        <a href="/guide" className="text-sm font-medium hover:text-blue-600">
+                            Guide
+                        </a>
+                    </div>
+
+                    {/* Unit System Toggle */}
+                    <div className="flex items-center space-x-3">
+                        <span className="text-sm font-medium">IP</span>
+                        <Switch
+                            id="unit-toggle"
+                            checked={isSI}
+                            onCheckedChange={setIsSI}
+                        />
+                        <span className="text-sm font-medium">SI</span>
+                    </div>
                 </div>
             </div>
         </header>

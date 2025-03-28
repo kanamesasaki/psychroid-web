@@ -212,7 +212,8 @@ const App = () => {
       } else if (proc.processType === "Cooling" && proc.inputType === "Power") {
         moistAir.coolingPower(prev.dryAirMassFlowRate, proc.value);
       } else if (proc.processType === "Cooling" && proc.inputType === "ΔT") {
-        moistAir.coolingDeltaTemperature(prev.dryAirMassFlowRate, proc.value);
+        const q = moistAir.coolingDeltaTemperature(prev.dryAirMassFlowRate, proc.value);
+        console.log("Cooling with ΔT:", proc.value, moistAir.tDryBulb(), q);
       } else if (proc.processType === "Humidify" && proc.inputType === "ΔW Adiabatic") {
         moistAir.humidifyAdiabatic(prev.dryAirMassFlowRate, proc.value);
       } else if (proc.processType === "Humidify" && proc.inputType === "ΔW Isothermal") {
