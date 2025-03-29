@@ -6,6 +6,7 @@ const BasicProcess = () => {
             <Helmet>
                 <title>Basic Process - Psychrometric Chart Calculator Guide</title>
                 <meta name="description" content="Learn how to solve heating and cooling processes using the Psychrometric Chart Calculator. Step-by-step examples for sensible heating and cooling with dehumidification." />
+                <link rel="canonical" href="https://psychroid.thermocraft.space/guide/basics/" />
             </Helmet>
 
             <h1 className="text-3xl font-bold mb-6">Quick Start Guide</h1>

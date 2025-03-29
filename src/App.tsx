@@ -325,6 +325,7 @@ const App = () => {
         <title>Psychrometric Chart Calculator</title>
         <meta name="description"
           content="Interactive psychrometric chart calculator for HVAC engineers. Calculate and visualize air properties, process flows, and energy requirements." />
+        <link rel="canonical" href="https://psychroid.thermocraft.space/" />
       </Helmet>
       <Header isSI={isSI} setIsSI={setIsSI} />
       <main className="flex-grow pt-2 px-6 pb-6">

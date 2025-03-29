@@ -6,6 +6,7 @@ const Introduction = () => {
             <Helmet>
                 <title>Introduction - Psychrometric Chart Calculator Guide</title>
                 <meta name="description" content="Learn about the basics of psychrometric charts and how to use our calculator tool." />
+                <link rel="canonical" href="https://psychroid.thermocraft.space/guide/" />
             </Helmet>
 
             <h1 className="text-3xl font-bold mb-6">Making Psychrometrics Simple</h1>

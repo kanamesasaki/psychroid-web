@@ -78,7 +78,7 @@ const GuideLayout = () => {
 
                 {mobileMenuOpen && (
                     <div className="mt-3 border-t pt-3">
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-sm">
                             {chapters.map(chapter => (
                                 <li key={chapter.id}>
                                     <NavLink
@@ -100,10 +100,10 @@ const GuideLayout = () => {
 
             <div className="flex flex-1 w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px]">
                 {/* Desktop Side Navigation */}
-                <aside className="w-64 bg-gray-50 p-6 hidden md:block border-r">
-                    <h3 className="font-bold text-lg mb-4">Guide Contents</h3>
+                <aside className="w-50 bg-gray-50 p-6 hidden md:block border-r">
+                    <h3 className="font-bold text-base mb-4">Guide Contents</h3>
                     <nav>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-sm">
                             {chapters.map(chapter => (
                                 <li key={chapter.id}>
                                     <NavLink
