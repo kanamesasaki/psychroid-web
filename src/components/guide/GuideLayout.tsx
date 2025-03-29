@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 // ガイドの章構造の定義
 const chapters = [
