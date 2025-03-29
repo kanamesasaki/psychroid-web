@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from 'react-helmet-async';
 import Initialization, { InitializationRef } from "./components/Initialization";
 import Chart from "./components/Chart";
 import Header from "./components/Header";
@@ -320,6 +321,11 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Psychrometric Chart Calculator</title>
+        <meta name="description"
+          content="Interactive psychrometric chart calculator for HVAC engineers. Calculate and visualize air properties, process flows, and energy requirements." />
+      </Helmet>
       <Header isSI={isSI} setIsSI={setIsSI} />
       <main className="flex-grow pt-2 px-6 pb-6">
         <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px]">

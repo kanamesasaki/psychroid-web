@@ -4,8 +4,8 @@ const BasicProcess = () => {
     return (
         <>
             <Helmet>
-                <title>Basic HVAC Process - Psychrometric Chart Calculator Guide</title>
-                <meta name="description" content="Learn how to set up and use the Psychrometric Chart Calculator for common HVAC applications." />
+                <title>Basic Process - Psychrometric Chart Calculator Guide</title>
+                <meta name="description" content="Learn how to solve heating and cooling processes using the Psychrometric Chart Calculator. Step-by-step examples for sensible heating and cooling with dehumidification." />
             </Helmet>
 
             <h1 className="text-3xl font-bold mb-6">Quick Start Guide</h1>

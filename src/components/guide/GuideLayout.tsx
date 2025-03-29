@@ -42,11 +42,6 @@ const GuideLayout = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Helmet>
-                <title>User Guide - Psychrometric Chart Calculator</title>
-                <meta name="description" content="Comprehensive guide to using the Psychrometric Chart Calculator for HVAC engineers and professionals." />
-            </Helmet>
-
             <header className="border-b py-4 mb-3">
                 <div className="w-full mx-auto max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1920px] px-4 sm:px-6 flex items-center justify-between">
                     <div className="flex items-center">
