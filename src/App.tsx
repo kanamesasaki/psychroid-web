@@ -247,8 +247,8 @@ const App = () => {
           dryAirMassFlowRate2 = initialState.flowRateValue;
         } else if (proc.mixFlowRateType === "volumetric_flow_rate") {
           dryAirMassFlowRate2 = isSI ?
-            proc.mixFlowRateValue / 3600.0 * moistAir.density() / (1 + moistAir.humidityRatio()) : // kg/s (SI)
-            proc.mixFlowRateValue * 60.0 * moistAir.density() / (1 + moistAir.humidityRatio());    // lb/h (IP)
+            proc.mixFlowRateValue / 3600.0 * moistAir2.density() / (1 + moistAir2.humidityRatio()) : // kg/s (SI)
+            proc.mixFlowRateValue * 60.0 * moistAir2.density() / (1 + moistAir2.humidityRatio());    // lb/h (IP)
         } else {
           throw new Error("Invalid flow rate type");
         }
