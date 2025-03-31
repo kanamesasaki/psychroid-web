@@ -42,9 +42,14 @@ export type State = {
 
 export type Process = {
   id: number;
-  processType: string; // heating, cooling, humidification
+  processType: string;  // heating, cooling, humidification, mixing
   inputType: string;
   value: number;
+  mixDryBulb: number;
+  mixFlowRateType: string;
+  mixFlowRateValue: number;
+  mixHumidityType: string;
+  mixHumidityValue: number;
 };
 
 export type ChartSettings = {
@@ -202,7 +207,8 @@ const App = () => {
   };
 
   const calculateNextState = (prev: State, proc: Process) => {
-    const moistAir: WasmMoistAir = WasmMoistAir.fromHumidityRatio(prev.tDryBulb, prev.humidityRatio, initialState.pressure, isSI);
+    let moistAir: WasmMoistAir = WasmMoistAir.fromHumidityRatio(prev.tDryBulb, prev.humidityRatio, initialState.pressure, isSI);
+    let newDryAirMassFlowRate = prev.dryAirMassFlowRate;
 
     try {
       if (proc.processType === "Heating" && proc.inputType === "Power") {
@@ -219,6 +225,34 @@ const App = () => {
         moistAir.humidifyAdiabatic(prev.dryAirMassFlowRate, proc.value);
       } else if (proc.processType === "Humidify" && proc.inputType === "ΔW Isothermal") {
         moistAir.humidifyIsothermal(prev.dryAirMassFlowRate, proc.value);
+      } else if (proc.processType === "Mixing") {
+        let moistAir2: WasmMoistAir;
+        if (proc.mixHumidityType === "humidity_ratio") {
+          moistAir2 = WasmMoistAir.fromHumidityRatio(proc.mixDryBulb, proc.mixHumidityValue, initialState.pressure, isSI);
+        } else if (proc.mixHumidityType === "relative_humidity") {
+          moistAir2 = WasmMoistAir.fromRelativeHumidity(proc.mixDryBulb, proc.mixHumidityValue * 0.01, initialState.pressure, isSI);
+        } else if (proc.mixHumidityType === "t_wet_bulb") {
+          moistAir2 = WasmMoistAir.fromTWetBulb(proc.mixDryBulb, proc.mixHumidityValue, initialState.pressure, isSI);
+        } else if (proc.mixHumidityType === "t_dew_point") {
+          moistAir2 = WasmMoistAir.fromTDewPoint(proc.mixDryBulb, proc.mixHumidityValue, initialState.pressure, isSI);
+        } else if (proc.mixHumidityType === "specific_enthalpy") {
+          moistAir2 = WasmMoistAir.fromSpecificEnthalpy(proc.mixDryBulb, proc.mixHumidityValue, initialState.pressure, isSI);
+        } else {
+          throw new Error("Invalid mixing humidity type");
+        }
+        let dryAirMassFlowRate2: number;
+        if (proc.mixFlowRateType === "total_air_mass_flow_rate") {
+          dryAirMassFlowRate2 = proc.mixFlowRateValue * (1 + moistAir.humidityRatio());
+        } else if (proc.mixFlowRateType === "dry_air_mass_flow_rate") {
+          dryAirMassFlowRate2 = initialState.flowRateValue;
+        } else if (proc.mixFlowRateType === "volumetric_flow_rate") {
+          dryAirMassFlowRate2 = isSI ?
+            proc.mixFlowRateValue / 3600.0 * moistAir.density() / (1 + moistAir.humidityRatio()) : // kg/s (SI)
+            proc.mixFlowRateValue * 60.0 * moistAir.density() / (1 + moistAir.humidityRatio());    // lb/h (IP)
+        } else {
+          throw new Error("Invalid flow rate type");
+        }
+        newDryAirMassFlowRate = moistAir.mixing(prev.dryAirMassFlowRate, moistAir2, dryAirMassFlowRate2);
       }
     } catch (err) {
       console.error(`Error in process ${proc.id} (${proc.processType}):`, err);
@@ -239,7 +273,7 @@ const App = () => {
       relativeHumidity: moistAir.relativeHumidity(),
       enthalpy: moistAir.specificEnthalpy(),
       density: moistAir.density(),
-      dryAirMassFlowRate: prev.dryAirMassFlowRate
+      dryAirMassFlowRate: newDryAirMassFlowRate
     } as State;
     return next;
   };

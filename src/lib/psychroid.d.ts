@@ -130,6 +130,10 @@ export class WasmMoistAir {
    * Humidification process
    */
   humidifyIsothermal(mda: number, w: number): void;
+  /**
+   * Mixing process
+   */
+  mixing(mda1: number, other: WasmMoistAir, mda2: number): number;
 }
 export class WasmPoint {
   private constructor();
@@ -168,6 +172,7 @@ export interface InitOutput {
   readonly wasmmoistair_coolingDeltaTemperature: (a: number, b: number, c: number) => [number, number, number];
   readonly wasmmoistair_humidifyAdiabatic: (a: number, b: number, c: number) => [number, number];
   readonly wasmmoistair_humidifyIsothermal: (a: number, b: number, c: number) => [number, number];
+  readonly wasmmoistair_mixing: (a: number, b: number, c: number, d: number) => [number, number, number];
   readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __externref_drop_slice: (a: number, b: number) => void;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;

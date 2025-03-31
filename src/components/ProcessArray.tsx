@@ -21,7 +21,7 @@ const ProcessArray = forwardRef<
         ]);
 
         const addProcessCard = () => {
-            const newProcess: Process = { id: processes.length, processType: "Heating", inputType: "Power", value: 0.0 };
+            const newProcess: Process = { id: processes.length, processType: "Heating", inputType: "Power", value: 0.0, mixDryBulb: NaN, mixFlowRateType: "", mixFlowRateValue: NaN, mixHumidityType: "", mixHumidityValue: NaN };
             setProcesses((prev) => [...prev, newProcess]);
         };
 

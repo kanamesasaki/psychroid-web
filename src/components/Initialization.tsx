@@ -207,8 +207,6 @@ const Initialization = forwardRef<
                                 <Button type="submit" className="w-full cursor-pointer">Set Initial State</Button>
                             </div>
                         </div>
-
-
                     </form>
                 </CardContent>
             </Card>

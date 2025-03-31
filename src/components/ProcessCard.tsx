@@ -7,6 +7,8 @@ import {
     SelectValue,
     SelectContent,
     SelectItem,
+    SelectGroup,
+    SelectLabel,
 } from "@/components/ui/select";
 import { Label } from "./ui/label";
 import { Process } from "../App";
@@ -35,18 +37,34 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
             resetForm,
         }));
 
+        // process member variables
+        // id: number;
+        // processType: string;  
+        // inputType: string;
+        // value: number;
+        // mixDryBulb: number;
+        // mixFlowRateType: string;
+        // mixFlowRateValue: number;
+        // mixHumidityType: string;
+        // mixHumidityValue: number;
+
         const handleProcessTypeChange = (value: string) => {
-            let inputType: string = "";
             if (value === "Heating" || value === "Cooling") {
-                inputType = "Power";
+                localProcessData.processType = value;
+                localProcessData.inputType = "Power";
+                localProcessData.value = 0.0;
             } else if (value === "Humidify") {
-                inputType = "ΔW Adiabatic";
+                localProcessData.processType = value;
+                localProcessData.inputType = "ΔW Adiabatic";
+                localProcessData.value = 0.0;
+            } else if (value === "Mixing") {
+                localProcessData.processType = value;
+                localProcessData.mixDryBulb = 20.0;
+                localProcessData.mixFlowRateType = "volumetric_flow_rate";
+                localProcessData.mixFlowRateValue = 0.0;
+                localProcessData.mixHumidityType = "relative_humidity";
+                localProcessData.mixHumidityValue = 50.0;
             }
-
-            localProcessData.processType = value;
-            localProcessData.inputType = inputType;
-            localProcessData.value = 0.0;
-
             onChange(localProcessData);
         };
 
@@ -60,14 +78,58 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
             onChange(localProcessData);
         };
 
+        const handleMixDryBulbChange = (value: string) => {
+            localProcessData.mixDryBulb = Number(value);
+            onChange(localProcessData);
+        };
+
+        const handleMixFlowRateTypeChange = (value: string) => {
+            localProcessData.mixFlowRateType = value;
+            onChange(localProcessData);
+        };
+
+        const handleMixFlowRateValueChange = (value: string) => {
+            localProcessData.mixFlowRateValue = Number(value);
+            onChange(localProcessData);
+        };
+
+        const handleMixHumidityTypeChange = (value: string) => {
+            localProcessData.mixHumidityType = value;
+            onChange(localProcessData);
+        };
+
+        const handleMixHumidityValueChange = (value: string) => {
+            localProcessData.mixHumidityValue = Number(value);
+            onChange(localProcessData);
+        };
+
         // Unit system dependent labels
-        // const humidityRatioUnit = isSI ? "kg/kg" : "lb/lb";
+        const humidityRatioUnit = isSI ? "kg/kg" : "lb/lb";
         // const pressureUnit = isSI ? "Pa" : "Psi";
         const temperatureUnit = isSI ? "°C" : "°F";
-        // const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
-        // const volumetricFlowwRateUnit = isSI ? "m³/h" : "ft³/min";
+        const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
+        const volumetricFlowRateUnit = isSI ? "m³/h" : "ft³/min";
         const massFlowRateUnit = isSI ? "kg/s" : "lb/h";
         const powerUnit = isSI ? "kW" : "Btu/h";
+
+        const getRangeForInputType = (inputType: string) => {
+            switch (inputType) {
+                case "humidity_ratio":
+                    return { min: 0.0, max: undefined };
+                case "relative_humidity":
+                    return { min: 0.0, max: 100.0 };
+                case "t_wet_bulb":
+                    return { min: isSI ? -100.0 : -148.0, max: isSI ? 200.0 : 392.0 };
+                case "t_dew_point":
+                    return { min: isSI ? -100.0 : -148.0, max: isSI ? 200.0 : 392.0 };
+                case "specific_enthalpy":
+                    return { min: 0.0, max: isSI ? 500.0 : 215.0 };
+                default:
+                    return { min: 0.0, max: 1.0 };
+            }
+        };
+
+        const { min, max } = getRangeForInputType(localProcessData.mixHumidityType);
 
         const renderInputs = () => {
             switch (localProcessData.processType) {
@@ -85,6 +147,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                                         <SelectItem value="Heating">Heating</SelectItem>
                                         <SelectItem value="Cooling">Cooling</SelectItem>
                                         <SelectItem value="Humidify">Humidify</SelectItem>
+                                        <SelectItem value="Mixing">Mixing</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -133,6 +196,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                                         <SelectItem value="Heating">Heating</SelectItem>
                                         <SelectItem value="Cooling">Cooling</SelectItem>
                                         <SelectItem value="Humidify">Humidify</SelectItem>
+                                        <SelectItem value="Mixing">Mixing</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -181,6 +245,7 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                                         <SelectItem value="Heating">Heating</SelectItem>
                                         <SelectItem value="Cooling">Cooling</SelectItem>
                                         <SelectItem value="Humidify">Humidify</SelectItem>
+                                        <SelectItem value="Mixing">Mixing</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -211,6 +276,85 @@ const ProcessCard = forwardRef<ProcessCardRef, ProcessCardProps>(
                                     value={localProcessData.value}
                                     onChange={(e) => handleValueChange(e.target.value)}
                                     placeholder={"0.0"}
+                                />
+                            </div>
+                        </div>
+                    );
+                case "Mixing":
+                    return (
+                        <div className="grid grid-cols-2 gap-4">
+                            {/* Top Row */}
+                            <div>
+                                <Label className="mb-1.5">Process Type</Label>
+                                <Select value={localProcessData.processType} onValueChange={handleProcessTypeChange}>
+                                    <SelectTrigger className="w-full" aria-label="Process Type">
+                                        <SelectValue placeholder="Select process type" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="Heating">Heating</SelectItem>
+                                        <SelectItem value="Cooling">Cooling</SelectItem>
+                                        <SelectItem value="Humidify">Humidify</SelectItem>
+                                        <SelectItem value="Mixing">Mixing</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <div>
+                                <Label className="mb-1.5">Dry-bulb Temperature [{temperatureUnit}]</Label>
+                                <Input
+                                    type="number"
+                                    value={localProcessData.mixDryBulb}
+                                    onChange={(e) => handleMixDryBulbChange(e.target.value)}
+                                    placeholder={isSI ? "30.0" : "85.0"}
+                                    min={isSI ? "-100" : "-148"}
+                                    max={isSI ? "200" : "392"}
+                                    step="any"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <Select value={localProcessData.mixFlowRateType} onValueChange={handleMixFlowRateTypeChange}>
+                                    <SelectTrigger className="w-full py-1 h-9" aria-label="Flow Rate Type">
+                                        <SelectValue placeholder="volumetric_flow_rate" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectLabel>Select Input Type</SelectLabel>
+                                            <SelectItem value="total_air_mass_flow_rate">Total air mass flow rate [{massFlowRateUnit}]</SelectItem>
+                                            <SelectItem value="dry_air_mass_flow_rate">Dry air mass flow rate [{massFlowRateUnit}]</SelectItem>
+                                            <SelectItem value="volumetric_flow_rate">Volumetric flow rate [{volumetricFlowRateUnit}]</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                                <Input
+                                    type="number"
+                                    value={localProcessData.mixFlowRateValue}
+                                    onChange={(e) => handleMixFlowRateValueChange(e.target.value)}
+                                    min={0.0}
+                                    step="any"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <Select value={localProcessData.mixHumidityType} onValueChange={handleMixHumidityTypeChange}>
+                                    <SelectTrigger className="w-full py-1 h-9" aria-label="Input Type">
+                                        <SelectValue placeholder="relative_humidity" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectLabel>Select Input Type</SelectLabel>
+                                            <SelectItem value="humidity_ratio">Humidity Ratio [{humidityRatioUnit}]</SelectItem>
+                                            <SelectItem value="relative_humidity">Relative Humidity [%]</SelectItem>
+                                            <SelectItem value="t_wet_bulb">Wet-bulb Temperature [{temperatureUnit}]</SelectItem>
+                                            <SelectItem value="t_dew_point">Dew-point Temperature [{temperatureUnit}]</SelectItem>
+                                            <SelectItem value="specific_enthalpy">Specific Enthalpy [{enthalpyUnit}]</SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                                <Input
+                                    type="number"
+                                    value={localProcessData.mixHumidityValue}
+                                    onChange={(e) => handleMixHumidityValueChange(e.target.value)}
+                                    min={min}
+                                    max={max}
+                                    step="any"
                                 />
                             </div>
                         </div>

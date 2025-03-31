@@ -109,6 +109,12 @@ export function specificEnthalpyLine(h, pressure, t_min, t_max, is_si) {
     return v1;
 }
 
+function _assertClass(instance, klass) {
+    if (!(instance instanceof klass)) {
+        throw new Error(`expected instance of ${klass.name}`);
+    }
+}
+
 const WasmMoistAirFinalization = (typeof FinalizationRegistry === 'undefined')
     ? { register: () => {}, unregister: () => {} }
     : new FinalizationRegistry(ptr => wasm.__wbg_wasmmoistair_free(ptr >>> 0, 1));
@@ -348,6 +354,21 @@ export class WasmMoistAir {
         if (ret[1]) {
             throw takeFromExternrefTable0(ret[0]);
         }
+    }
+    /**
+     * Mixing process
+     * @param {number} mda1
+     * @param {WasmMoistAir} other
+     * @param {number} mda2
+     * @returns {number}
+     */
+    mixing(mda1, other, mda2) {
+        _assertClass(other, WasmMoistAir);
+        const ret = wasm.wasmmoistair_mixing(this.__wbg_ptr, mda1, other.__wbg_ptr, mda2);
+        if (ret[2]) {
+            throw takeFromExternrefTable0(ret[1]);
+        }
+        return ret[0];
     }
 }
 
