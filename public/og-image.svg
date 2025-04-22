@@ -25,9 +25,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.25000001"
-     inkscape:cx="-53.999998"
-     inkscape:cy="130"
+     inkscape:zoom="0.3535534"
+     inkscape:cx="1149.7556"
+     inkscape:cy="202.23253"
      inkscape:window-width="1920"
      inkscape:window-height="974"
      inkscape:window-x="2869"
@@ -1913,7 +1913,7 @@
   </g>
   <g
      id="g93"
-     transform="matrix(1.4451981,0,0,1.4451981,-291.47018,-145.92998)">
+     transform="matrix(1.4451981,0,0,1.4451981,-291.47018,-167.92998)">
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.102354;stroke-dasharray:none;stroke-opacity:1"
        d="m 488.39444,377.7356 -0.002,-2.43477 3.43638,-1.31098 c 7.24208,-2.76285 18.55121,-7.52027 25.05637,-10.49513 21.21347,-9.70104 41.86421,-22.94073 60.19246,-38.59084 16.61114,-14.1839 32.94674,-31.85359 47.38381,-51.25356 16.94565,-22.77088 33.28305,-50.34247 47.75834,-80.59871 6.20377,-12.96747 13.58688,-29.67269 18.18786,-41.15272 l 1.39787,-3.48784 11.71145,-0.004 c 6.4413,-0.002 11.71146,0.0647 11.71146,0.14804 0,0.39771 -5.30268,12.78673 -8.97686,20.97326 -13.10298,29.19513 -26.86002,54.81704 -41.81039,77.87014 -19.57473,30.18373 -41.38373,55.47461 -65.17894,75.58496 -25.21145,21.30727 -53.49826,37.48593 -85.38247,48.83452 -5.61738,1.99941 -20.21227,6.78585 -25.17773,8.26742 -0.28421,0.0848 -0.30563,-0.10625 -0.30763,-2.35029 z"
@@ -1933,16 +1933,16 @@
      xml:space="preserve"
      style="font-size:24px;font-family:'Century Schoolbook';-inkscape-font-specification:'Century Schoolbook';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0.579"
      x="600"
-     y="528"
+     y="508"
      id="text1"><tspan
        sodipodi:role="line"
        x="600"
-       y="528"
+       y="508"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.3333px;font-family:Sans;-inkscape-font-specification:'Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle"
        id="tspan2">Psychroid</tspan><tspan
        sodipodi:role="line"
        x="600"
-       y="594.66663"
+       y="574.66663"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.3333px;font-family:Sans;-inkscape-font-specification:'Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle"
        id="tspan1">Psychrometric Chart Calculator</tspan></text>
 </svg>

@@ -16,9 +16,9 @@ const Header = ({ isSI, setIsSI }: HeaderProps) => {
                             alt="Logo"
                             className="h-8 w-8 mr-3"
                         />
-                        <span className="text-2xl font-bold">
+                        <h1 className="text-2xl font-bold m-0">
                             Psychrometric Chart Calculator
-                        </span>
+                        </h1>
                     </a>
                 </div>
 

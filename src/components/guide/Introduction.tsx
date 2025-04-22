@@ -105,7 +105,7 @@ const Introduction = () => {
                             </tbody>
                         </table>
                     </div>
-                    <li>Multi-step air process calculation including Heating, Cooling, and Humidification</li>
+                    <li>Multi-step air process calculation including Heating, Cooling, Humidification and Mixing</li>
                     <li>Air state and process visualization on the psychrometric chart</li>
                     <li>Support for both SI (metric) and IP (imperial) unit systems</li>
                 </ul>
