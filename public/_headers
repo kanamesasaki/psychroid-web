@@ -6,9 +6,9 @@ https://*.psychroid-web.pages.dev/*
   X-Robots-Tag: noindex
 
 # production environment
-https://psychroid.thermocraft.space/*
+https://psychroid.com/*
   X-Robots-Tag: index,follow
 
   # To check if the headers are working, the following command can be used:
-  # curl -I https://psychroid.thermocraft.space/
+  # curl -I https://psychroid.com/
   # curl -I https://psychroid-web.pages.dev/
