@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import StateTable from "./components/StateTable";
 import init, { relativeHumidityLine, specificEnthalpyLine, WasmMoistAir } from './lib/psychroid';
 import ProcessArray, { ProcessArrayRef } from "./components/ProcessArray";
-import CookieConsent from './components/CookieConsent';
+// import CookieConsent from './components/CookieConsent';
 
 export type Point = {
   x: number; // Dry-bulb temperature in °C 
@@ -407,7 +407,7 @@ const App = () => {
         </div>
       </footer>
 
-      <CookieConsent />
+      {/* <CookieConsent /> */}
     </div>
   );
 }
