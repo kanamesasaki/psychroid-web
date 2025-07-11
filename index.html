@@ -55,13 +55,16 @@
   }
   </script>
 
-  <!-- Google Analytics -->
+  <!-- Google Analytics (Minimal) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR7TMX1P1S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-NR7TMX1P1S');
+    gtag('config', 'G-NR7TMX1P1S', {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
   </script>
 
   <!-- Google Search Console Verification -->
