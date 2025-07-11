@@ -26,7 +26,7 @@ const Header = ({ isSI, setIsSI }: HeaderProps) => {
                 <div className="flex items-center space-x-6">
                     {/* Navigation Links */}
                     <div className="flex items-center mr-10">
-                        <a href="/guide" className="text-sm font-medium hover:text-blue-600">
+                        <a href="/guide/" className="text-sm font-medium hover:text-blue-600">
                             Guide
                         </a>
                     </div>

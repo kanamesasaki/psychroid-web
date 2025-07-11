@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS v3 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+    <title>Guide - Psychrometric Chart Calculator</title>
+    <meta name="description"
+        content="Learn about the basics of psychrometric charts and how to use our calculator tool. Step-by-step examples for heating, cooling, and mixing processes." />
+    <meta name="keywords" content="psychrometric chart, HVAC engineering, guide, tutorial, heating, cooling, mixing" />
+    <meta name="author" content="K. Sasaki" />
+
+    <!-- canonical link -->
+    <link rel="canonical" href="https://psychroid.com/guide/" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR7TMX1P1S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NR7TMX1P1S');
+    </script>
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="LwgDBHcWMivw5xNDEvvO8gkWTbRCaqzEmLfrqO5Au_8" />
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <header class="border-b py-4 mb-3">
+        <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="/" class="flex items-center">
+                    <img src="/logo.svg" alt="Logo" class="h-8 w-8 mr-3" />
+                    <span class="text-2xl font-bold">
+                        Psychrometric Chart Calculator
+                    </span>
+                </a>
+            </div>
+            <nav class="flex items-center space-x-5">
+                <a href="/" class="text-sm font-medium hover:text-blue-600 cursor-pointer">
+                    Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <!-- Introduction Section -->
+            <h1 class="text-3xl font-bold mb-6">Making Psychrometrics Simple</h1>
+
+            <section class="mb-8">
+                <p class="mb-4">
+                    Psychrometrics is the study of air-water mixtures and their properties. Understanding these
+                    relationships
+                    is crucial for designing efficient HVAC systems, controlling indoor comfort, and solving various
+                    engineering challenges related to humidity and temperature control.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">What You'll Discover</h2>
+                <p class="mb-4">
+                    This tool isn't just another calculator—it's your visual playground for exploring how air behaves
+                    under different conditions. Whether you're designing HVAC systems, studying building science,
+                    or just learning about psychrometrics, our interactive chart helps you visualize and understand
+                    complex air property relationships.
+                </p>
+                <ul class="list-disc pl-10 mb-4 space-y-2">
+                    <li>Evaluate air state and specify the following parameters:</li>
+                    <div class="overflow-x-auto">
+                        <table class="divide-y divide-gray-200 mt-2 mb-4 mx-auto" style="width: auto; max-width: 100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Parameter
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Symbol
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        SI Unit
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        IP Unit
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                                <tr>
+                                    <td class="px-6 py-2 whitespace-nowrap">Dry Bulb Temperature</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">T<sub>db</sub></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">°C</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">°F</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-2 whitespace-nowrap">Wet Bulb Temperature</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">T<sub>wb</sub></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">°C</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">°F</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-2 whitespace-nowrap">Dew Point Temperature</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">T<sub>dew</sub></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">°C</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">°F</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-2 whitespace-nowrap">Humidity Ratio</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">W</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">kg/kg<sub>da</sub></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">lb/lb<sub>da</sub></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-2 whitespace-nowrap">Relative Humidity</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">RH</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">%</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">%</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-2 whitespace-nowrap">Specific Enthalpy</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">h</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">kJ/kg<sub>da</sub></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">Btu/lb<sub>da</sub></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-2 whitespace-nowrap">Density</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">ρ</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">kg/m<sup>3</sup></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">lb/ft<sup>3</sup></td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-6 py-2 whitespace-nowrap">Dry Air Mass Flow Rate</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">ṁ<sub>da</sub></td>
+                                    <td class="px-6 py-2 whitespace-nowrap">kg/s</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">lb/h</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-2 whitespace-nowrap">Volumetric Flow Rate</td>
+                                    <td class="px-6 py-2 whitespace-nowrap font-medium">V̇</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">m<sup>3</sup>/s</td>
+                                    <td class="px-6 py-2 whitespace-nowrap">cfm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <li>Multi-step air process calculation including Heating, Cooling, Humidification and Mixing</li>
+                    <li>Air state and process visualization on the psychrometric chart</li>
+                    <li>Support for both SI (metric) and IP (imperial) unit systems</li>
+                </ul>
+            </section>
+
+            <!-- Quick Start Guide Section -->
+            <h1 class="text-3xl font-bold mb-6 mt-12">Quick Start Guide</h1>
+
+            <p class="mb-6">
+                Follow these simple steps to solve your first psychrometric problems.
+            </p>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">Sensible Heating of Moist Air</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="mb-4">
+                            <strong>Scenario</strong>: Moist air, saturated at 2°C, enters a heating coil at a rate of
+                            10 m³/s. Air leaves the coil at 40°C. Find the required rate of heat
+                            addition.
+                        </p>
+
+                        <p class="mb-4">
+                            In sensible heating, the air temperature increases while the humidity ratio remains
+                            constant.
+                            This process moves horizontally from left to right on the psychrometric chart.
+                        </p>
+
+                        <ol class="list-decimal pl-10 mb-4 space-y-2">
+                            <li>Set Initial State:</li>
+                            <ul class="list-disc pl-10 space-y-1">
+                                <li>Pressure [Pa]: 101325.0</li>
+                                <li>Dry-bulb Temperature [°C]: 2</li>
+                                <li>Relative Humidity [%]: 100.0</li>
+                                <li>Volumetric Flow Rate [m³/h]: 36000.0</li>
+                                <li>Press "Set Initial State" Button</li>
+                            </ul>
+                            <li>Set Process 0→1:</li>
+                            <ul class="list-disc pl-10 space-y-1">
+                                <li>Process Type: Heating</li>
+                                <li>Input Type: ΔT</li>
+                                <li>ΔT [°C]: 38</li>
+                                <li>Press "Apply Process" Button</li>
+                            </ul>
+                            <li>The required heating capacity is presented in the results table</li>
+                        </ol>
+
+                        <p class="mb-2">
+                            <strong>Solution:</strong> The required heating capacity is approximately 491 kW.
+                        </p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-md p-4 shadow-sm bg-white">
+                        <h3 class="text-lg font-medium mb-3">Psychrometric Process Visualization</h3>
+                        <img src="/chart_heating.svg" alt="Sensible heating process on psychrometric chart"
+                            class="w-full h-auto" />
+                        <p class="text-xs text-gray-600 mt-2">
+                            Point 0: Initial air state (2°C, 100% RH)<br />
+                            Point 1: Final air state (40°C, 9.6% RH)<br />
+                            The horizontal line represents constant humidity ratio during heating.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">Cooling and Dehumidification of Moist Air</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="mb-4">
+                            <strong>Scenario</strong>: Moist air at 30°C dry-bulb temperature and 50% rh enters a
+                            cooling coil at 5 m³/s and is processed to a final saturation condition at
+                            10°C. Find the kW of refrigeration required.
+                        </p>
+
+                        <p class="mb-4">
+                            In this process, the air is cooled below its dew point temperature, causing moisture to
+                            condense out.
+                            The resulting air has both a lower temperature and lower humidity ratio.
+                        </p>
+
+                        <ol class="list-decimal pl-10 mb-4 space-y-2">
+                            <li>Set Initial State:</li>
+                            <ul class="list-disc pl-10 space-y-1">
+                                <li>Pressure [Pa]: 101325.0</li>
+                                <li>Dry-bulb Temperature [°C]: 30</li>
+                                <li>Relative Humidity [%]: 50.0</li>
+                                <li>Volumetric Flow Rate [m³/h]: 18000.0</li>
+                                <li>Press "Set Initial State" Button</li>
+                            </ul>
+                            <li>Set Process 0→1:</li>
+                            <ul class="list-disc pl-10 space-y-1">
+                                <li>Process Type: Cooling</li>
+                                <li>Input Type: ΔT</li>
+                                <li>ΔT [°C]: 20</li>
+                                <li>Press "Apply Process" Button</li>
+                            </ul>
+                            <li>The required cooling capacity is presented in the results table</li>
+                        </ol>
+
+                        <p class="mb-2">
+                            <strong>Solution:</strong> The refrigeration required is approximately 199 kW.
+                        </p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-md p-4 shadow-sm bg-white">
+                        <h3 class="text-lg font-medium mb-3">Psychrometric Process Visualization</h3>
+                        <img src="/chart_cooling.svg" alt="Cooling and dehumidification process on psychrometric chart"
+                            class="w-full h-auto" />
+                        <p class="text-xs text-gray-600 mt-2">
+                            Point 0: Initial air state (30°C, 50% RH)<br />
+                            Point 1: Final air state (10°C, 100% RH)<br />
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">Adiabatic Mixing of Two Moist Airstreams</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="mb-4">
+                            <strong>Scenario</strong>: A stream of 2 m³/s of outdoor air at 4°C dry-bulb temperature
+                            and 2°C thermodynamic wet-bulb temperature is adiabatically mixed
+                            with 6.25 m³/s of recirculated air at 25°C dry-bulb temperature and
+                            50% rh. Find the dry-bulb temperature and thermodynamic wet-bulb
+                            temperature of the resulting mixture.
+                        </p>
+
+                        <p class="mb-4">
+                            In this process, two airstreams with different properties are mixed, resulting in a new air
+                            state with intermediate properties.
+                            The final state is determined by an energy and mass balance between the two streams, with
+                            the mixing point lying on a straight line connecting the two initial states on the
+                            psychrometric chart.
+                            The position of the mixing point on this line depends on the mass flow rates of the two
+                            streams.
+                        </p>
+
+                        <ol class="list-decimal pl-10 mb-4 space-y-2">
+                            <li>Set Initial State:</li>
+                            <ul class="list-disc pl-10 space-y-1">
+                                <li>Pressure [Pa]: 101325.0</li>
+                                <li>Dry-bulb Temperature [°C]: 4.0</li>
+                                <li>Wet-bulb Temperature [°C]: 2.0</li>
+                                <li>Volumetric Flow Rate [m³/h]: 7200</li>
+                                <li>Press "Set Initial State" Button</li>
+                            </ul>
+                            <li>Set Process 0→1:</li>
+                            <ul class="list-disc pl-10 space-y-1">
+                                <li>Process Type: Mixing</li>
+                                <li>Dry-bulb Temperature [°C]: 25.0</li>
+                                <li>Volumetric Flow Rate [m³/h]: 22500</li>
+                                <li>Relative Humidity [%]: 50.0</li>
+                                <li>Press "Apply Process" Button</li>
+                            </ul>
+                            <li>The resulting dry-bulb temperature and wet-bulb temperature of the mixed air are
+                                presented in the state table.</li>
+                        </ol>
+
+                        <p class="mb-2">
+                            <strong>Solution:</strong> The dry-bulb temperature is approximately 19.6 °C, and the
+                            wet-bulb temperature is approximately 14.6 °C.
+                        </p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-md p-4 shadow-sm bg-white">
+                        <h3 class="text-lg font-medium mb-3">Psychrometric Process Visualization</h3>
+                        <img src="/chart_mixing.svg" alt="Mixing process on psychrometric chart"
+                            class="w-full h-auto" />
+                        <p class="text-xs text-gray-600 mt-2">
+                            Point 0: Initial air state (4.0°C, 70.7% RH)<br />
+                            Point 1: Final air state (19.6°C, 58.0% RH)<br />
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Implementation Standards and References -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">Implementation Standards</h2>
+                <p class="mb-4">
+                    The psychrometric calculations in this tool follow the standards established by ASHRAE
+                    <a href="#ref-ashrae2017si" class="text-blue-600 hover:underline ml-1">[1]</a>, <a
+                        href="#ref-ashrae2017ip" class="text-blue-600 hover:underline ml-1">[2]</a>.
+                    The calculation library is open source and available on GitHub: <a
+                        href="https://github.com/kanamesasaki/psychroid" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline">https://github.com/kanamesasaki/psychroid</a>.
+                    Contributions are welcome! Please open an issue or submit a pull request if you have suggestions for
+                    improvements, bug fixes, or additional features.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">References</h2>
+
+                <div class="pl-5 space-y-4 text-sm">
+                    <div class="flex" id="ref-ashrae2017si">
+                        <div class="flex-none w-10 text-right mr-2">[1]</div>
+                        <div>
+                            <span class="font-medium">ASHRAE</span> (2017).
+                            "<span class="italic">ASHRAE Handbook—Fundamentals (SI Edition)</span>".
+                            American Society of Heating, Refrigerating and Air-Conditioning Engineers.
+                        </div>
+                    </div>
+                    <div class="flex" id="ref-ashrae2017ip">
+                        <div class="flex-none w-10 text-right mr-2">[2]</div>
+                        <div>
+                            <span class="font-medium">ASHRAE</span> (2017).
+                            "<span class="italic">ASHRAE Handbook—Fundamentals (IP Edition)</span>".
+                            American Society of Heating, Refrigerating and Air-Conditioning Engineers.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="border-t py-2 px-6">
+        <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+            <div class="flex space-x-6 items-center">
+                <div class="text-sm text-gray-600">
+                    © 2025 K. Sasaki
+                </div>
+                <span class="text-gray-300">|</span>
+                <a href="/contact/" class="text-sm text-gray-600 hover:underline">
+                    Contact
+                </a>
+                <span class="text-gray-300">|</span>
+                <a href="/terms/" class="text-sm text-gray-600 hover:underline">
+                    Terms & Conditions
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
