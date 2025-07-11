@@ -55,15 +55,6 @@
   }
   </script>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR7TMX1P1S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-NR7TMX1P1S');
-  </script>
-
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="LwgDBHcWMivw5xNDEvvO8gkWTbRCaqzEmLfrqO5Au_8" />
 </head>
@@ -71,6 +62,27 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Google Analytics - Lazy Load after initial content -->
+  <script>
+    // Load Google Analytics after critical content is ready
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        // Create and inject gtag script
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-NR7TMX1P1S';
+        document.head.appendChild(gtagScript);
+
+        // Initialize dataLayer and gtag
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-NR7TMX1P1S');
+      }, 1000); // Delay loading by 1 second
+    });
+  </script>
 </body>
 
 </html>
