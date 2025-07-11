@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import * as d3 from 'd3';
+import { scaleLinear } from 'd3-scale';
+import { select } from 'd3-selection';
+import { line, curveLinear, curveCatmullRom } from 'd3-shape';
+import { axisBottom, axisRight } from 'd3-axis';
 import { Point, Line, State } from '../App';
 import { Button } from './ui/button';
 import { Download } from 'lucide-react';
@@ -90,16 +93,16 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
         if (enthalpyLines.length === 0) return;
 
         // Set scales based on min/max values
-        const xScale = d3.scaleLinear()
+        const xScale = scaleLinear()
             .domain([xMin, xMax])
             .range([margin.left, width - margin.right]);
 
-        const yScale = d3.scaleLinear()
+        const yScale = scaleLinear()
             .domain([yMin, yMax])
             .range([height - margin.bottom, margin.top]);
 
         // SVG container
-        const svg = d3.select(svgRef.current)
+        const svg = select(svgRef.current)
             .attr('viewBox', `0 0 ${width} ${height}`)
             .attr('preserveAspectRatio', 'xMidYMid meet');
 
@@ -147,10 +150,10 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
                 { x: xMin, y: yMin },
                 ...rh100LineClipped,
             ])
-            .attr('d', d3.line<{ x: number; y: number }>()
+            .attr('d', line<{ x: number; y: number }>()
                 .x(d => xScale(d.x))
                 .y(d => yScale(d.y))
-                .curve(d3.curveLinear));
+                .curve(curveLinear));
 
         const gridContainer = svg.append('g')
             .attr('clip-path', 'url(#grid-area-clip)');
@@ -162,7 +165,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
         svg.append('g')
             .attr('class', 'x-axis')
             .attr('transform', `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(xScale))
+            .call(axisBottom(xScale))
             .append('text')
             .attr('x', width / 2)
             .attr('y', 27)
@@ -178,7 +181,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
         svg.append('g')
             .attr('class', 'y-axis')
             .attr('transform', `translate(${width - margin.right},0)`)
-            .call(d3.axisRight(yScale))
+            .call(axisRight(yScale))
             .append('text')
             .attr('transform', 'rotate(-90)')
             .attr('y', 45)
@@ -192,7 +195,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             .style('font-size', '8px');
 
         // Add vertical grid lines
-        const xGrid = d3.axisBottom(xScale)
+        const xGrid = axisBottom(xScale)
             .tickSize(-(height - margin.top - margin.bottom)) // minus sign to set upward
             .tickFormat(() => '')
             .ticks(12);
@@ -208,7 +211,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             });
 
         // Add horizontal grid lines
-        const yGrid = d3.axisRight(yScale)
+        const yGrid = axisRight(yScale)
             .tickSize(-(width - margin.left - margin.right)) // minus sign to set leftward
             .tickFormat(() => '')
             .ticks(10);
@@ -229,7 +232,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             !xMajorTicks.some(mt => Math.abs(mt - t) < 1e-6)
         );
 
-        const xMinorAxis = d3.axisBottom(xScale)
+        const xMinorAxis = axisBottom(xScale)
             .tickValues(xMinorTicks)
             .tickSize(-(height - margin.top - margin.bottom))
             .tickFormat(() => '');
@@ -250,7 +253,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             !yMajorTicks.some(mt => Math.abs(mt - t) < 1e-6)
         );
 
-        const yMinorAxis = d3.axisRight(yScale)
+        const yMinorAxis = axisRight(yScale)
             .tickValues(yMinorTicks)
             .tickSize(-(width - margin.left - margin.right))
             .tickFormat(() => '');
@@ -267,10 +270,10 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
 
         // plot RH lines
         // Create line generator
-        const rhLineFunc = d3.line<Point>()
+        const rhLineFunc = line<Point>()
             .x(d => xScale(d.x))
             .y(d => yScale(d.y))
-            .curve(d3.curveCatmullRom);
+            .curve(curveCatmullRom);
 
         rhLines.forEach(lineData => {
             // Add spline path
@@ -294,10 +297,10 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
 
         // plot enthalpy lines
         // Create line generator
-        const enthalpyLineFunc = d3.line<Point>()
+        const enthalpyLineFunc = line<Point>()
             .x(d => xScale(d.x))
             .y(d => yScale(d.y))
-            .curve(d3.curveLinear);
+            .curve(curveLinear);
 
         enthalpyLines.forEach(lineData => {
             // Add line
@@ -330,18 +333,18 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
         if (states.length === 0) return;
         if (!chartInit) return;
 
-        const svg = d3.select(svgRef.current);
+        const svg = select(svgRef.current);
 
-        const xScale = d3.scaleLinear()
+        const xScale = scaleLinear()
             .domain([xMin, xMax])
             .range([margin.left, width - margin.right]);
 
-        const yScale = d3.scaleLinear()
+        const yScale = scaleLinear()
             .domain([yMin, yMax])
             .range([height - margin.bottom, margin.top]);
 
         // Add tooltip div
-        const tooltip = d3.select('body')
+        const tooltip = select('body')
             .append('div')
             .attr('class', 'tooltip')
             .style('opacity', 0)
