@@ -17,6 +17,9 @@
   <!-- Preload critical CSS -->
   <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
+  <!-- Preload WASM module for psychrometric calculations -->
+  <link rel="preload" href="/src/lib/psychroid_bg.wasm" as="fetch" type="application/wasm" crossorigin>
+
   <!-- Open Graph Tag -->
   <meta property="og:title" content="Psychrometric Chart Calculator - Psychroid" />
   <meta property="og:description" content="Interactive psychrometric chart calculator for HVAC engineers." />
