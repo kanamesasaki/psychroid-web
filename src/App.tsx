@@ -3,6 +3,7 @@ import Initialization, { InitializationRef } from "./components/Initialization";
 import Chart from "./components/Chart";
 import Header from "./components/Header";
 import StateTable from "./components/StateTable";
+import ProcessSummaryTable from "./components/ProcessSummaryTable";
 import init, { relativeHumidityLine, specificEnthalpyLine, WasmMoistAir } from './lib/psychroid';
 import ProcessArray, { ProcessArrayRef } from "./components/ProcessArray";
 // import CookieConsent from './components/CookieConsent';
@@ -51,6 +52,14 @@ export type Process = {
   mixHumidityValue: number;
 };
 
+export type ProcessSummary = {
+  id: number;
+  processType: string;
+  enthalpyChange: number; // Δh [kJ/s]
+  humidityChange: number; // ΔW [kg/s]
+  dryAirChange: number;   // Δm [kg/s]
+};
+
 export type ChartSettings = {
   xMin: number;
   xMax: number;
@@ -62,7 +71,7 @@ export type ChartSettings = {
 const initialStateDefaultSI: InitialState = {
   pressure: 101325,                       // 101325 Pa
   flowRateType: "volumetric_flow_rate", 	// volumetric_flow_rate
-  flowRateValue: 1700.0,                  // 1500 m³/h
+  flowRateValue: 1700.0,                  // 1700 m³/h
   parameterType1: "t_dry_bulb",           // t_dry_bulb
   value1: 20.0,                           // 20 °C
   parameterType2: "relative_humidity",    // relative_humidity
@@ -98,6 +107,8 @@ const App = () => {
   const [processes, setProcesses] = useState<Process[]>([]);
   // State array
   const [states, setStates] = useState<Array<State>>([]);
+  // Process summary array
+  const [processSummaries, setProcessSummaries] = useState<Array<ProcessSummary>>([]);
 
   // Load WASM module
   useEffect(() => {
@@ -274,6 +285,15 @@ const App = () => {
       density: moistAir.density(),
       dryAirMassFlowRate: newDryAirMassFlowRate
     } as State;
+
+    const processSummary: ProcessSummary = {
+      id: proc.id,
+      processType: proc.processType,
+      enthalpyChange: next.enthalpy * next.dryAirMassFlowRate - prev.enthalpy * prev.dryAirMassFlowRate, // Δh [kJ/s]
+      humidityChange: next.humidityRatio * next.dryAirMassFlowRate - prev.humidityRatio * prev.dryAirMassFlowRate, // ΔW [kg/s]
+      dryAirChange: newDryAirMassFlowRate - prev.dryAirMassFlowRate // Δm [kg/s]
+    };
+    setProcessSummaries(prevSummaries => [...prevSummaries, processSummary]);
     return next;
   };
 
@@ -281,6 +301,7 @@ const App = () => {
   useEffect(() => {
     if (wasmInitialized) {
       const stateArray: State[] = [];
+      setProcessSummaries([]); // Reset process summaries
 
       let moistAir: WasmMoistAir;
       let dryAirMassFlowRate: number;
@@ -361,6 +382,7 @@ const App = () => {
             <div className="col-span-1 md:col-span-7">
               <Chart isSI={isSI} rhLines={rhLines} enthalpyLines={enthalpyLines} states={states} />
               <StateTable isSI={isSI} states={states} />
+              <ProcessSummaryTable isSI={isSI} processSummaries={processSummaries} />
             </div>
             <div className="col-span-1 md:col-span-5">
               <Initialization
