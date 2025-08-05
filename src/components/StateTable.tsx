@@ -8,26 +8,18 @@ interface StateTableProps {
 }
 
 const StateTable: React.FC<StateTableProps> = ({ isSI, states }) => {
-    // Unit system dependent labels
-    const humidityRatioUnit = isSI ? "kg/kg" : "lb/lb";
-    const temperatureUnit = isSI ? "°C" : "°F";
-    const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
-    const volumetricFlowwRateUnit = isSI ? "m³/h" : "ft³/min";
-    const densityUnit = isSI ? "kg/m³" : "lb/ft³";
-    const massFlowRateUnit = isSI ? "kg/s" : "lb/h";
-
     // tooltip for table header
     const headerTooltips = {
         "id": "State identifier number",
-        "tdb": `Dry-bulb temperature [${temperatureUnit}]`,
-        "w": `Humidity ratio [${humidityRatioUnit}]`,
-        "rh": "Relative humidity [%]",
-        "h": `Specific enthalpy [${enthalpyUnit}]`,
-        "twb": `Wet-bulb temperature [${temperatureUnit}]`,
-        "tdew": `Dew point temperature [${temperatureUnit}]`,
-        "rho": `Density of moist air [${densityUnit}]`,
-        "mdot": `Mass flow rate of dry air [${massFlowRateUnit}]`,
-        "vdot": `Volumetric flow rate [${volumetricFlowwRateUnit}]`,
+        "tdb": "Dry-bulb temperature",
+        "w": "Humidity ratio",
+        "rh": "Relative humidity",
+        "h": "Specific enthalpy",
+        "twb": "Wet-bulb temperature",
+        "tdew": "Dew point temperature",
+        "rho": "Density of moist air",
+        "mdot": "Mass flow rate of dry air",
+        "vdot": "Volumetric flow rate",
     };
 
     const HeaderTooltip = ({ id, children }: { id: keyof typeof headerTooltips, children: React.ReactNode }) => (
@@ -57,15 +49,15 @@ const StateTable: React.FC<StateTableProps> = ({ isSI, states }) => {
                     <thead>
                         <tr>
                             <HeaderTooltip id="id">ID</HeaderTooltip>
-                            <HeaderTooltip id="tdb">T<sub>db</sub> [{temperatureUnit}]</HeaderTooltip>
-                            <HeaderTooltip id="w">W [{humidityRatioUnit}]</HeaderTooltip>
+                            <HeaderTooltip id="tdb">T<sub>db</sub> [{isSI ? '°C' : '°F'}]</HeaderTooltip>
+                            <HeaderTooltip id="w">W [{isSI ? 'kg' : 'lb'}<sub>w</sub>/{isSI ? 'kg' : 'lb'}<sub>da</sub>]</HeaderTooltip>
                             <HeaderTooltip id="rh">RH [%]</HeaderTooltip>
-                            <HeaderTooltip id="h">h [{enthalpyUnit}]</HeaderTooltip>
-                            <HeaderTooltip id="twb">T<sub>wb</sub> [{temperatureUnit}]</HeaderTooltip>
-                            <HeaderTooltip id="tdew">T<sub>dew</sub> [{temperatureUnit}]</HeaderTooltip>
-                            <HeaderTooltip id="rho">ρ [{densityUnit}]</HeaderTooltip>
-                            <HeaderTooltip id="mdot">m&#x0307;<sub>da</sub> [{massFlowRateUnit}]</HeaderTooltip>
-                            <HeaderTooltip id="vdot">V&#x0307; [{volumetricFlowwRateUnit}]</HeaderTooltip>
+                            <HeaderTooltip id="h">h [{isSI ? 'kJ/kg' : 'Btu/lb'}<sub>da</sub>]</HeaderTooltip>
+                            <HeaderTooltip id="twb">T<sub>wb</sub> [{isSI ? '°C' : '°F'}]</HeaderTooltip>
+                            <HeaderTooltip id="tdew">T<sub>dew</sub> [{isSI ? '°C' : '°F'}]</HeaderTooltip>
+                            <HeaderTooltip id="rho">ρ [{isSI ? 'kg/m³' : 'lb/ft³'}]</HeaderTooltip>
+                            <HeaderTooltip id="mdot">m&#x0307;<sub>da</sub> [{isSI ? 'kg' : 'lb'}<sub>da</sub>{isSI ? '/s' : '/h'}]</HeaderTooltip>
+                            <HeaderTooltip id="vdot">V&#x0307; [{isSI ? 'm³/h' : 'ft³/min'}]</HeaderTooltip>
                         </tr>
                     </thead>
                     <tbody>

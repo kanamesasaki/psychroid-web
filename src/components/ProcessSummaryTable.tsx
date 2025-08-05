@@ -8,18 +8,13 @@ interface ProcessSummaryTableProps {
 }
 
 const ProcessSummaryTable: React.FC<ProcessSummaryTableProps> = ({ isSI, processSummaries }) => {
-    // Unit system dependent labels
-    const powerUnit = isSI ? "kW" : "Btu/h";
-    const massFlowRateUnit = isSI ? "kg/s" : "lb/h";
-    const waterRateUnit = isSI ? "kg/s" : "lb/h";
-
     // tooltip for table header
     const headerTooltips = {
         "process": "Process step identifier",
         "type": "Type of psychrometric process",
-        "power": `Change of enthalpy [${powerUnit}]`,
-        "deltaW": `Change of water amount [${waterRateUnit}]`,
-        "massFlow": `Change of dry air mass flow rate [${massFlowRateUnit}]`,
+        "power": "Change of enthalpy",
+        "deltaW": "Change of water amount",
+        "massFlow": "Change of dry air mass flow rate",
     };
 
     const HeaderTooltip = ({ id, children }: { id: keyof typeof headerTooltips, children: React.ReactNode }) => (
@@ -42,6 +37,23 @@ const ProcessSummaryTable: React.FC<ProcessSummaryTableProps> = ({ isSI, process
         </Tooltip.Root>
     );
 
+    // Table header with tooltips
+    const tableHeader = (
+        <thead>
+            <tr>
+                <HeaderTooltip id="process">Process</HeaderTooltip>
+                <HeaderTooltip id="type">Type</HeaderTooltip>
+                <HeaderTooltip id="power">Δh [{isSI ? "kW" : "Btu/h"}]</HeaderTooltip>
+                <HeaderTooltip id="deltaW">ΔW [{isSI ? 'kg' : 'lb'}<sub>w</sub>{isSI ? '/s' : '/h'}]</HeaderTooltip>
+                <HeaderTooltip id="massFlow">
+                    Δm&#x0307;<sub>da</sub> [{isSI ? 'kg' : 'lb'}<sub>da</sub>{isSI ? '/s' : '/h'}]
+                </HeaderTooltip>
+            </tr>
+        </thead>
+    );
+
+    const columnsCount = 5;
+
     if (processSummaries.length === 0) {
         return (
             <Tooltip.Provider>
@@ -49,18 +61,10 @@ const ProcessSummaryTable: React.FC<ProcessSummaryTableProps> = ({ isSI, process
                     <h3 className="text-lg font-semibold mb-3">Process Summary</h3>
                     <div className="overflow-x-auto">
                         <table className="min-w-full bg-white border border-gray-200 text-sm">
-                            <thead>
-                                <tr>
-                                    <HeaderTooltip id="process">Process</HeaderTooltip>
-                                    <HeaderTooltip id="type">Type</HeaderTooltip>
-                                    <HeaderTooltip id="power">Δh [{powerUnit}]</HeaderTooltip>
-                                    <HeaderTooltip id="deltaW">ΔW [{waterRateUnit}]</HeaderTooltip>
-                                    <HeaderTooltip id="massFlow">Δm&#x0307;<sub>da</sub> [{massFlowRateUnit}]</HeaderTooltip>
-                                </tr>
-                            </thead>
+                            {tableHeader}
                             <tbody>
                                 <tr>
-                                    <td colSpan={5} className="px-4 py-2 text-center text-gray-500 border-b">
+                                    <td colSpan={columnsCount} className="px-4 py-2 text-center text-gray-500 border-b">
                                         No data available. Add processes and click "Apply Process" to see the summary.
                                     </td>
                                 </tr>
@@ -78,15 +82,7 @@ const ProcessSummaryTable: React.FC<ProcessSummaryTableProps> = ({ isSI, process
                 <h3 className="text-lg font-semibold mb-3">Process Summary</h3>
                 <div className="overflow-x-auto">
                     <table className="min-w-full bg-white border border-gray-200 text-sm">
-                        <thead>
-                            <tr>
-                                <HeaderTooltip id="process">Process</HeaderTooltip>
-                                <HeaderTooltip id="type">Type</HeaderTooltip>
-                                <HeaderTooltip id="power">Δh [{powerUnit}]</HeaderTooltip>
-                                <HeaderTooltip id="deltaW">ΔW [{waterRateUnit}]</HeaderTooltip>
-                                <HeaderTooltip id="massFlow">Δm&#x0307;<sub>da</sub> [{massFlowRateUnit}]</HeaderTooltip>
-                            </tr>
-                        </thead>
+                        {tableHeader}
                         <tbody>
                             {processSummaries.map((summary, index) => (
                                 <tr key={index}>
