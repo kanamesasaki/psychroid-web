@@ -139,8 +139,19 @@ const App = () => {
         isSI                      // Use SI or IP units
       );
 
+      // Convert WASM points to plain JavaScript objects and free WASM memory
+      const jsPoints: Point[] = [];
+      for (let i = 0; i < wasmPoints.length; i++) {
+        const point = wasmPoints[i];
+        jsPoints.push({
+          x: point.x,
+          y: point.y
+        });
+        point.free(); // Free WASM memory immediately after copying
+      }
+
       rhLines.push({
-        data: wasmPoints,
+        data: jsPoints,
         label: `${Math.round(rh * 100)}%`
       });
     });
@@ -166,8 +177,19 @@ const App = () => {
         isSI                      // Use SI units
       );
 
+      // Convert WASM points to plain JavaScript objects and free WASM memory
+      const jsPoints: Point[] = [];
+      for (let i = 0; i < wasmPoints.length; i++) {
+        const point = wasmPoints[i];
+        jsPoints.push({
+          x: point.x,
+          y: point.y
+        });
+        point.free(); // Free WASM memory immediately after copying
+      }
+
       enthalpyLines.push({
-        data: wasmPoints,
+        data: jsPoints,
         label: isSI ? `${enthalpy} kJ/kg` : `${enthalpy} Btu/lb`
       });
     });
@@ -264,6 +286,8 @@ const App = () => {
           throw new Error("Invalid flow rate type");
         }
         newDryAirMassFlowRate = moistAir.mixing(prev.dryAirMassFlowRate, moistAir2, dryAirMassFlowRate2);
+        // Free the second moist air object used in mixing
+        moistAir2.free();
       }
     } catch (err) {
       console.error(`Error in process ${proc.id} (${proc.processType}):`, err);
@@ -295,6 +319,9 @@ const App = () => {
       dryAirChange: newDryAirMassFlowRate - prev.dryAirMassFlowRate // Δm [kg/s]
     };
     setProcessSummaries(prevSummaries => [...prevSummaries, processSummary]);
+    // Free WASM memory
+    moistAir.free();
+
     return next;
   };
 
@@ -370,6 +397,8 @@ const App = () => {
       })
 
       setStates(stateArray);
+      // Free the initial moist air object
+      moistAir.free();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialState, wasmInitialized, processes]);

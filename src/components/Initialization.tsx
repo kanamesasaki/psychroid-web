@@ -120,7 +120,7 @@ const Initialization = forwardRef<
         const pressureUnit = isSI ? "Pa" : "Psi";
         const temperatureUnit = isSI ? "°C" : "°F";
         const enthalpyUnit = isSI ? "kJ/kg" : "Btu/lb";
-        const volumetricFlowwRateUnit = isSI ? "m³/h" : "ft³/min";
+        const volumetricFlowRateUnit = isSI ? "m³/h" : "ft³/min";
         const massFlowRateUnit = isSI ? "kg/s" : "lb/s";
 
         return (
@@ -164,7 +164,7 @@ const Initialization = forwardRef<
                                             <SelectLabel>Select Input Type</SelectLabel>
                                             <SelectItem value="total_air_mass_flow_rate">Total air mass flow rate [{massFlowRateUnit}]</SelectItem>
                                             <SelectItem value="dry_air_mass_flow_rate">Dry air mass flow rate [{massFlowRateUnit}]</SelectItem>
-                                            <SelectItem value="volumetric_flow_rate">Volumetric flow rate [{volumetricFlowwRateUnit}]</SelectItem>
+                                            <SelectItem value="volumetric_flow_rate">Volumetric flow rate [{volumetricFlowRateUnit}]</SelectItem>
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>
