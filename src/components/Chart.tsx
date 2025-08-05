@@ -188,7 +188,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             .attr('x', -height / 2 - 30)
             .attr('fill', 'black')
             .attr('font-size', '8px')
-            .text(`Humidity ratio [${isSI ? 'kg/kg' : 'lb/lb'}]`);
+            .html(`Humidity ratio [ ${isSI ? 'kg<tspan font-size="6px" dy="1px">w</tspan><tspan dy="-1px"> / kg</tspan><tspan font-size="6px" dy="1px">da</tspan><tspan dy="-1px"> ]</tspan>' : 'lb<tspan font-size="6px" dy="1px">w</tspan><tspan dy="-1px"> / lb</tspan><tspan font-size="6px" dy="1px">da</tspan><tspan dy="-1px"> ]</tspan>'}`);
 
         svg.select('.y-axis')
             .selectAll('.tick text')
@@ -343,19 +343,6 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             .domain([yMin, yMax])
             .range([height - margin.bottom, margin.top]);
 
-        // Add tooltip div
-        const tooltip = select('body')
-            .append('div')
-            .attr('class', 'tooltip')
-            .style('opacity', 0)
-            .style('position', 'absolute')
-            .style('background-color', 'white')
-            .style('border', '1px solid #ddd')
-            .style('padding', '5px')
-            .style('border-radius', '3px')
-            .style('font-size', '12px')
-            .style('pointer-events', 'none');
-
         // Filter states that are within the plot boundaries
         const filteredStates = states.filter(state =>
             state.tDryBulb >= xMin &&
@@ -364,8 +351,10 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             state.humidityRatio <= yMax
         );
 
-        // Remove existing points
+        // Remove existing points and labels
         svg.selectAll('.state-point').remove();
+        svg.selectAll('.state-label').remove();
+
         svg.selectAll('.state-point')
             .data(filteredStates)
             .enter()
@@ -376,22 +365,7 @@ const Chart = ({ isSI, rhLines, enthalpyLines, states }: ChartProps) => {
             .attr('fill', 'white')
             .attr('stroke', 'black')
             .attr('stroke-width', 2)
-            .attr('class', 'state-point')
-            .on('mouseover', (event, d) => {
-                tooltip.transition()
-                    .duration(200)
-                    .style('opacity', 0.9);
-                tooltip.html(`ID: ${d.id}<br/>` +
-                    `Dry-Bulb Temperature: ${d.tDryBulb.toFixed(1)}${isSI ? '°C' : '°F'}<br/>` +
-                    `Humidity Ratio: ${d.humidityRatio.toFixed(4)} ${isSI ? 'kg/kg' : 'lb/lb'}`)
-                    .style('left', (event.pageX + 10) + 'px')
-                    .style('top', (event.pageY - 28) + 'px');
-            })
-            .on('mouseout', () => {
-                tooltip.transition()
-                    .duration(500)
-                    .style('opacity', 0);
-            });
+            .attr('class', 'state-point');
 
         svg.selectAll('.state-label').remove();
         svg.selectAll('.state-label')
