@@ -131,6 +131,14 @@ export class WasmMoistAir {
    */
   humidifyIsothermal(mda: number, w: number): void;
   /**
+   * Humidification process with liquid water at specified temperature
+   */
+  humidifyLiquid(mda: number, w: number, t_water: number): void;
+  /**
+   * Humidification process with water vapor at specified temperature
+   */
+  humidifyVapor(mda: number, w: number, t_vapor: number): void;
+  /**
    * Mixing process
    */
   mixing(mda1: number, other: WasmMoistAir, mda2: number): number;
@@ -172,6 +180,8 @@ export interface InitOutput {
   readonly wasmmoistair_coolingDeltaTemperature: (a: number, b: number, c: number) => [number, number, number];
   readonly wasmmoistair_humidifyAdiabatic: (a: number, b: number, c: number) => [number, number];
   readonly wasmmoistair_humidifyIsothermal: (a: number, b: number, c: number) => [number, number];
+  readonly wasmmoistair_humidifyLiquid: (a: number, b: number, c: number, d: number) => [number, number];
+  readonly wasmmoistair_humidifyVapor: (a: number, b: number, c: number, d: number) => [number, number];
   readonly wasmmoistair_mixing: (a: number, b: number, c: number, d: number) => [number, number, number];
   readonly __wbindgen_export_0: WebAssembly.Table;
   readonly __externref_drop_slice: (a: number, b: number) => void;

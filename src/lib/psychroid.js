@@ -356,6 +356,30 @@ export class WasmMoistAir {
         }
     }
     /**
+     * Humidification process with liquid water at specified temperature
+     * @param {number} mda
+     * @param {number} w
+     * @param {number} t_water
+     */
+    humidifyLiquid(mda, w, t_water) {
+        const ret = wasm.wasmmoistair_humidifyLiquid(this.__wbg_ptr, mda, w, t_water);
+        if (ret[1]) {
+            throw takeFromExternrefTable0(ret[0]);
+        }
+    }
+    /**
+     * Humidification process with water vapor at specified temperature
+     * @param {number} mda
+     * @param {number} w
+     * @param {number} t_vapor
+     */
+    humidifyVapor(mda, w, t_vapor) {
+        const ret = wasm.wasmmoistair_humidifyVapor(this.__wbg_ptr, mda, w, t_vapor);
+        if (ret[1]) {
+            throw takeFromExternrefTable0(ret[0]);
+        }
+    }
+    /**
      * Mixing process
      * @param {number} mda1
      * @param {WasmMoistAir} other
